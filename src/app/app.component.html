@@ -1,0 +1,33 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>设置</ion-title>
+        </ion-toolbar>
+        <ion-item color="warning">
+          <ion-avatar slot="start" style="margin-left: 10%;">
+            <img src="{{user?.icon?user.icon:'assets/icon/person.jpeg'}}">
+          </ion-avatar>
+          <ion-label>
+            <h2>{{user?.name?user.name:'登录'}}</h2>
+            <p>{{user?.signature?user.signature:'个人签名...'}}</p>
+          </ion-label>
+        </ion-item>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

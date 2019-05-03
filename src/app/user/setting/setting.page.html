@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>账号信息</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="upload()">
+        保存
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <!-- <ion-card-subtitle>{{article.title}}</ion-card-subtitle> -->
+      <ion-card-title></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item (click)="select()" style="text-align:center;border-radius:50%">
+        <!-- <ion-label>头像:</ion-label> -->
+        <ion-img *ngIf="user.icon" [src]="user.icon" style="display:block;width:200px;height:200px;border-radius:50%">
+        </ion-img>
+      </ion-item>
+      <ion-item>
+        <ion-avatar>
+          <ion-icon name="body"></ion-icon>
+        </ion-avatar>
+        <div>
+          <ion-label>签名</ion-label>
+          <ion-input [(ngModel)]="user.signature"></ion-input>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-avatar>
+          <ion-icon name="person"></ion-icon>
+        </ion-avatar>
+        <ion-label text-wrap>
+          <ion-text>
+            名称
+          </ion-text>
+          <p>{{user.name}}</p>
+          <!-- <ion-text>
+            用于IYOU里显示，您的联系人将看到它
+          </ion-text> -->
+        </ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-avatar>
+          <ion-icon name="call"></ion-icon>
+        </ion-avatar>
+        <ion-label text-wrap>
+          <ion-text>
+            电话
+          </ion-text>
+          <p>{{user.telephone}}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

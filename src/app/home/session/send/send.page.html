@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="warning">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{peerUserId}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let msg of messages">
+      <ion-item *ngIf="msg.from==peerUserId" lines="none">
+        <ion-avatar slot="start">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+        <ion-badge text-wrap slot="start">{{msg.content}} ({{msg.created?.seconds*1000 | date:'MM/dd H:mm'}})
+        </ion-badge>
+      </ion-item>
+      <ion-item *ngIf="msg.to==peerUserId" lines="none">
+        <ion-badge text-wrap color="success" slot="end">{{msg.content}}
+          ({{msg.created?.seconds*1000 | date:'MM/dd H:mm'}})
+        </ion-badge>
+        <ion-avatar slot="end">
+          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+        </ion-avatar>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
+
+<ion-footer>
+  <ion-item>
+    <ion-textarea [(ngModel)]="message.content" rows="2" placeholder="消息..."></ion-textarea>
+    <ion-button color="warning" (click)="send()" expand="block">发送</ion-button>
+  </ion-item>
+</ion-footer>
