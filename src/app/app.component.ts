@@ -45,9 +45,9 @@ export class AppComponent {
     this.initializeApp();
     this.listenForLoginEvents();
 
-    if (!utilService.getUser()) {
-      this.router.navigateByUrl('/login');
-    }
+    // if (!utilService.getUser()) {
+    //   this.router.navigateByUrl('/login');
+    // }
   }
 
   initializeApp() {
