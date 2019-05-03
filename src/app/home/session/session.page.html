@@ -1,19 +1,30 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title>Session</ion-title>
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-icon slot="icon-only" name="book"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- <ion-title>绘本</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of msgCache | keyvalue">
-      <ion-avatar slot="start" (click)="gotoSend(item.key)">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-      </ion-avatar>
-      <ion-label>{{item.key}}</ion-label>
-      <!-- <div *ngFor="let msg of item.value">
+    <ion-card *ngFor="let book of books" style="width:42%;height:50%;display: inline-block;">
+      <!-- <div *ngFor="let book of books" style="background:url(http://127.0.0.1:8081/abc/cover.jpg);background-size:100% 100%;
+    width: 200px;height: 200px;">{{book.title}}</div> -->
+      <ion-card-content>
+        <ion-img [src]="book.cover"></ion-img>
+        <p>{{book.title}}</p>
+        <!-- <ion-avatar slot="start">
+        <img src="{{book.cover}}">
+      </ion-avatar> -->
+        <!-- <ion-label>{{book.title}}</ion-label> -->
+        <!-- <div *ngFor="let msg of item.value">
         <p>{{msg.content}}---{{msg.created?.seconds*1000 | date:'MM/dd H:mm'}}</p>
       </div> -->
-    </ion-item>
+      </ion-card-content>
+    </ion-card>
   </ion-list>
 </ion-content>

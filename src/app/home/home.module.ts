@@ -56,7 +56,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/home/finder',
+        redirectTo: '/home/session',
         pathMatch: 'full'
       }
     ]
