@@ -22,7 +22,7 @@ export class SessionPage implements OnInit {
     for (let i=0;i<5;i++){
       let book0 = (new Book).toObject()
       book0.title = '字母abc';
-      book0.cover = 'http://127.0.0.1:8081/abc/cover.jpg';
+      book0.cover = 'http://192.168.123.121:8081/abc/cover.jpg';
       this.books[i] = book0;
     }
   }
