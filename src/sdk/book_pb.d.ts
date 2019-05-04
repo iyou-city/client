@@ -14,8 +14,10 @@ export class Book extends jspb.Message {
   getCover(): string;
   setCover(value: string): void;
 
-  getPage(): number;
-  setPage(value: number): void;
+  getPageList(): Array<Page>;
+  setPageList(value: Array<Page>): void;
+  clearPageList(): void;
+  addPage(value?: Page, index?: number): Page;
 
   getReader(): string;
   setReader(value: string): void;
@@ -47,12 +49,38 @@ export namespace Book {
     id: string,
     title: string,
     cover: string,
-    page: number,
+    pageList: Array<Page.AsObject>,
     reader: string,
     count: string,
     category: string,
     labelsMap: Array<[string, string]>,
     created?: google_protobuf_timestamp_pb.Timestamp.AsObject,
+  }
+}
+
+export class Page extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
+  getPicture(): string;
+  setPicture(value: string): void;
+
+  getSound(): string;
+  setSound(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): Page.AsObject;
+  static toObject(includeInstance: boolean, msg: Page): Page.AsObject;
+  static serializeBinaryToWriter(message: Page, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): Page;
+  static deserializeBinaryFromReader(message: Page, reader: jspb.BinaryReader): Page;
+}
+
+export namespace Page {
+  export type AsObject = {
+    name: string,
+    picture: string,
+    sound: string,
   }
 }
 

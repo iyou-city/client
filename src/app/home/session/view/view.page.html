@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>{{book.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-slides pager="true" [options]="slideOpts">
+      <ion-slide *ngFor="let page of book.pageList">
+        <ion-img [src]="page.picture" style="padding: 2px;width: 80%">
+        </ion-img>
+      </ion-slide>
+      <!-- <ion-slide *ngFor="let video of article.videosList">
+      <video controls style="width:100%;">
+        <source [src]="video" type="video/mp4" />
+      </video>
+    </ion-slide> -->
+    </ion-slides>
+  </ion-card>
+</ion-content>

@@ -13,7 +13,8 @@ const routes: Routes = [
   { path: 'signup', loadChildren: './user/signup/signup.module#SignupPageModule' },
   { path: 'send', loadChildren: './home/session/send/send.module#SendPageModule' },
   { path: 'group', loadChildren: './home/contact/group/group.module#GroupPageModule' },
-  { path: 'setting', loadChildren: './user/setting/setting.module#SettingPageModule' }
+  { path: 'setting', loadChildren: './user/setting/setting.module#SettingPageModule' },
+  { path: 'view', loadChildren: './home/session/view/view.module#ViewPageModule' }
 ];
 
 @NgModule({

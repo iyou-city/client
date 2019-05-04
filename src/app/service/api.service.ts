@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../../sdk/user_pb';
+import { Book } from '../../sdk/book_pb';
 import { Message } from '../../sdk/message_pb';
 import { environment } from '../../environments/environment';
 import { ArticlesClient } from '../../sdk/article_grpc_web_pb';
@@ -25,6 +26,7 @@ export class ApiService {
 export class UtilService {
   userId = '';
   msgCache = new Map<string, Message.AsObject[]>();
+  book = (new Book).toObject();
 
   constructor() { }
 
