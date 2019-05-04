@@ -10,17 +10,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-slides pager="true" [options]="slideOpts">
-      <ion-slide *ngFor="let page of book.pageList">
-        <ion-img [src]="page.picture" style="width: 80%" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let page of book.pageList">
+      <ion-card>
+        <ion-img [src]="page.picture" style="width: 80%;display: block;margin: 0 auto;"
+          (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
         </ion-img>
-      </ion-slide>
-      <!-- <ion-slide *ngFor="let video of article.videosList">
+        <br />
+        <p>{{page.name}}</p>
+        <br /><br /><br />
+        <ion-button (click)="back()" color="success">
+          <ion-icon slot="icon-only" name="mic"></ion-icon>
+        </ion-button>
+        <ion-button (click)="back()" color="success">
+          <ion-icon slot="icon-only" name="microphone"></ion-icon>
+        </ion-button>
+      </ion-card>
+    </ion-slide>
+    <!-- <ion-slide *ngFor="let video of article.videosList">
       <video controls style="width:100%;">
         <source [src]="video" type="video/mp4" />
       </video>
     </ion-slide> -->
-    </ion-slides>
-  </ion-card>
+  </ion-slides>
+
 </ion-content>
