@@ -13,20 +13,20 @@
 
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let page of book.pageList">
-      <ion-card>
-        <ion-img [src]="page.picture" style="width: 80%;display: block;margin: 0 auto;"
-          (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
-        </ion-img>
-        <br />
+      <div>
+        <ion-card style="width: 80%;display: block;margin: 10px auto;">
+          <ion-img [src]="page.picture" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
+          </ion-img>
+        </ion-card>
         <p>{{page.name}}</p>
         <br /><br /><br />
-        <ion-button (click)="back()" color="success">
+        <ion-button (click)="playSound(page)" color="success">
           <ion-icon slot="icon-only" name="mic"></ion-icon>
         </ion-button>
-        <ion-button (click)="back()" color="success">
+        <ion-button (click)="playSound(page)" color="success">
           <ion-icon slot="icon-only" name="microphone"></ion-icon>
         </ion-button>
-      </ion-card>
+      </div>
     </ion-slide>
     <!-- <ion-slide *ngFor="let video of article.videosList">
       <video controls style="width:100%;">
