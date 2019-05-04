@@ -19,6 +19,7 @@ export class ViewPage implements OnInit {
     },
     lazy: {
       loadPrevNext: true,
+      loadOnTransitionStart: true,
     }
   }
 
