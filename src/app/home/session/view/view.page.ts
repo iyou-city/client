@@ -18,8 +18,7 @@ export class ViewPage implements OnInit {
       stopOnLastSlide: true,
     },
     lazy: {
-      loadPrevNext: true,
-      loadOnTransitionStart: true,
+      loadPrevNext: false,
     }
   }
 
