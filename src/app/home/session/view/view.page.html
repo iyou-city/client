@@ -13,7 +13,7 @@
   <ion-card>
     <ion-slides pager="true" [options]="slideOpts">
       <ion-slide *ngFor="let page of book.pageList">
-        <ion-img [src]="page.picture" style="padding: 2px;width: 80%">
+        <ion-img [src]="page.picture" style="width: 80%" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
         </ion-img>
       </ion-slide>
       <!-- <ion-slide *ngFor="let video of article.videosList">

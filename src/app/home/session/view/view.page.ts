@@ -25,6 +25,10 @@ export class ViewPage implements OnInit {
     this.book = utilService.book;
   }
 
+  playSound(page: Page.AsObject) {
+    new Audio(page.sound).play();
+  }
+
   back() {
     this.router.navigateByUrl('session');
   }
