@@ -13,12 +13,13 @@ export class ViewPage implements OnInit {
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
-    preloadImages: true,
-    lazy: false,
     autoplay: {
       delay: 2000,
       stopOnLastSlide: true,
     },
+    lazy: {
+      loadPrevNext: true,
+    }
   }
 
   constructor(private router: Router) { }
