@@ -16,11 +16,8 @@ export class ViewPage implements OnInit {
     autoplay: {
       delay: 2000,
       stopOnLastSlide: true,
-    },
-    lazy: {
-      loadPrevNext: false,
     }
-  }
+  };
 
   constructor(private router: Router) { }
 
@@ -35,5 +32,4 @@ export class ViewPage implements OnInit {
   back() {
     this.router.navigateByUrl('session');
   }
-
 }
