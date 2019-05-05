@@ -22,24 +22,24 @@ export class SessionPage implements OnInit {
     for (let i = 0; i < 5; i++) {
       let book0 = new Book();
       book0.setTitle('字母abc');
-      book0.setCover('http://192.168.123.121:8081/abc/cover.jpg');
+      book0.setCover('http://192.168.123.121:80/abc/cover.jpg');
 
       let page0 = new Page();
       page0.setName('a');
-      page0.setPicture('http://192.168.123.121:8081/abc/' + page0.getName() + '.png');
-      page0.setSound('http://192.168.123.121:8081/abc/' + page0.getName() + '.mp3');
+      page0.setPicture('http://192.168.123.121:80/abc/' + page0.getName() + '.png');
+      page0.setSound('http://192.168.123.121:80/abc/' + page0.getName() + '.mp3');
       book0.addPage(page0);
 
       let page1 = new Page();
       page1.setName('b');
-      page1.setPicture('http://192.168.123.121:8081/abc/' + page1.getName() + '.png');
-      page1.setSound('http://192.168.123.121:8081/abc/' + page1.getName() + '.mp3');
+      page1.setPicture('http://192.168.123.121:80/abc/' + page1.getName() + '.png');
+      page1.setSound('http://192.168.123.121:80/abc/' + page1.getName() + '.mp3');
       book0.addPage(page1);
 
       let page2 = new Page();
       page2.setName('c');
-      page2.setPicture('http://192.168.123.121:8081/abc/' + page2.getName() + '.png');
-      page2.setSound('http://192.168.123.121:8081/abc/' + page2.getName() + '.mp3');
+      page2.setPicture('http://192.168.123.121:80/abc/' + page2.getName() + '.png');
+      page2.setSound('http://192.168.123.121:80/abc/' + page2.getName() + '.mp3');
       book0.addPage(page2);
 
       this.books[i] = book0.toObject();
