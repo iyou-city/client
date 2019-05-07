@@ -9,6 +9,7 @@ import { apiService, utilService } from '../../../service/api.service';
   styleUrls: ['./view.page.scss'],
 })
 export class ViewPage implements OnInit {
+  host = utilService.host;
   book: Book.AsObject;
   slideOpts = {
     slidesPerView: 1,
@@ -27,7 +28,7 @@ export class ViewPage implements OnInit {
   }
 
   playSound(page: Page.AsObject) {
-    new Audio(page.sound.url).play();
+    new Audio(utilService.host + '/uploads/' + page.sound.url).play();
   }
 
   back() {
