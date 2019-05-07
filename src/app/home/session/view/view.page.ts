@@ -22,11 +22,12 @@ export class ViewPage implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    console.log(utilService.book);
     this.book = utilService.book;
   }
 
   playSound(page: Page.AsObject) {
-    new Audio(page.sound).play();
+    new Audio(page.sound.url).play();
   }
 
   back() {

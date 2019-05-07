@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { User } from '../../../sdk/user_pb';
-import { Book, Page } from '../../../sdk/book_pb';
+import { Book, Page, Media } from '../../../sdk/book_pb';
 import { Group } from '../../../sdk/group_pb';
 import { Topic } from '../../../sdk/message_pb';
 import { Component, OnInit } from '@angular/core';
@@ -13,37 +13,40 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./session.page.scss'],
 })
 export class SessionPage implements OnInit {
-  //msgCache = utilService.msgCache;
+  host = utilService.host;
   books: Book.AsObject[] = [];
 
   constructor(private router: Router) { }
 
   ngOnInit() {
-    for (let i = 0; i < 5; i++) {
-      let book0 = new Book();
-      book0.setTitle('字母abc');
-      book0.setCover('http://192.168.123.121:80/abc/cover.jpg');
+    let stream = apiService.bookClient.list((new Book), apiService.metaData);
+    stream.on('data', response => {
+      this.books.push(response.toObject());
+    });
+    stream.on('error', err => {
+      alert(JSON.stringify(err));
+      //this.loadGroups();
+    });
+    // for (let i = 0; i < 5; i++) {
+    //   let book = new Book();
+    //   book.setTitle('字母abc');
+    //   let cover = new Media();
+    //   cover.setUrl(utilService.host + '/abc/cover.jpg');
+    //   book.setCover(cover);
+    //   for (let j of ['a', 'b', 'c']) {
+    //     let page = new Page();
+    //     page.setName(j);
+    //     let picture = new Media();
+    //     picture.setUrl(utilService.host + '/abc/' + page.getName() + '.png');
+    //     page.setPicture(picture);
 
-      let page0 = new Page();
-      page0.setName('a');
-      page0.setPicture('http://192.168.123.121:80/abc/' + page0.getName() + '.png');
-      page0.setSound('http://192.168.123.121:80/abc/' + page0.getName() + '.mp3');
-      book0.addPage(page0);
-
-      let page1 = new Page();
-      page1.setName('b');
-      page1.setPicture('http://192.168.123.121:80/abc/' + page1.getName() + '.png');
-      page1.setSound('http://192.168.123.121:80/abc/' + page1.getName() + '.mp3');
-      book0.addPage(page1);
-
-      let page2 = new Page();
-      page2.setName('c');
-      page2.setPicture('http://192.168.123.121:80/abc/' + page2.getName() + '.png');
-      page2.setSound('http://192.168.123.121:80/abc/' + page2.getName() + '.mp3');
-      book0.addPage(page2);
-
-      this.books[i] = book0.toObject();
-    }
+    //     let sound = new Media();
+    //     sound.setUrl(utilService.host + '/abc/' + page.getName() + '.mp3');
+    //     page.setSound(sound);
+    //     book.addPage(page);
+    //   }
+    //   this.books.push(book.toObject());
+    // }
   }
 
   gotoView(book: Book.AsObject) {
