@@ -1,15 +1,15 @@
 -- Merging decision tree log ---
 provider#org.apache.cordova.camera.FileProvider
-INJECTED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:9-14:20
+INJECTED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:9-15:20
 	android:grantUriPermissions
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:92-126
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:92-126
 	android:authorities
 		INJECTED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:19-66
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:19-66
 	android:exported
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:67-91
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:67-91
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:127-180
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:127-180
 manifest
 ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:2:1-25:12
 INJECTED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:2:1-25:12
@@ -94,11 +94,11 @@ ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidM
 	android:name
 		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
 activity#com.sarriaroman.PhotoViewer.PhotoActivity
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:15:9-143
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:9-143
 	android:theme
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:15:76-140
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:76-140
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:15:19-75
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:12:19-75
 uses-sdk
 ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:17:5-74
 INJECTED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:17:5-74
@@ -121,33 +121,33 @@ uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:18:5-81
 	android:name
 		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:18:22-78
-uses-permission#android.permission.RECORD_AUDIO
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:19:5-71
-	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:19:22-68
-uses-permission#android.permission.RECORD_VIDEO
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:20:5-71
-	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:20:22-68
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:21:5-80
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:19:5-80
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:21:22-77
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:19:22-77
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:22:5-81
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:20:5-81
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:22:22-78
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:20:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:23:5-79
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:21:5-79
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:23:22-76
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:21:22-76
 uses-feature#android.hardware.location.gps
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:24:5-66
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:22:5-66
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:24:19-63
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:22:19-63
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:23:5-71
+	android:name
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:23:22-68
+uses-permission#android.permission.RECORD_VIDEO
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:24:5-71
+	android:name
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:24:22-68
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:13-123
+ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:14:13-123
 	android:resource
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:75-120
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:14:75-120
 	android:name
-		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:13:24-74
+		ADDED from /home/daniel/iyou.city/client/platforms/android/app/src/main/AndroidManifest.xml:14:24-74
