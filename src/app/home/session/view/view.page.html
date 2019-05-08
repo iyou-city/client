@@ -11,13 +11,14 @@
 
 <ion-content>
 
-  <ion-slides [options]="slideOpts">
+  <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <div>
         <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
         <ion-card style="width: 80%;display: block;margin: 6px auto;">
-          <ion-img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
-          </ion-img>
+          <!-- <ion-img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
+          </ion-img> -->
+          <img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" />
         </ion-card>
         <p>{{page.name}}</p>
         <br /><br />
