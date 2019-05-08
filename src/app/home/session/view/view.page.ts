@@ -14,6 +14,7 @@ export class ViewPage implements OnInit {
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
+    preloadImages: false,
     autoplay: {
       delay: 2000,
       stopOnLastSlide: true,
