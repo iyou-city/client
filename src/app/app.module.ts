@@ -9,6 +9,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
+import { Media } from '@ionic-native/media/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +29,7 @@ import { ArticleComponent } from './home/record/article/article.component'
     SplashScreen,
     MediaCapture,
     Camera, File,
+    Media,
     PhotoViewer,
     Geolocation,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
