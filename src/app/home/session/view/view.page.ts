@@ -43,21 +43,21 @@ export class ViewPage implements OnInit {
   }
 
   playSound(page: Page.AsObject) {
-    if (!this.file) {
+    if (!this.audio) {
       new Audio(utilService.host + '/uploads/' + page.sound.url).play();
     } else {
-      new Audio('testfile.mp3').play();
+      //new Audio('assets/audio/1001.mp3').play();
+      this.audio.play();
     }
   }
 
-  file: MediaObject;
+  audio: MediaObject;
   recordSound() {
-    if (!this.file) {
-      this.file = this.media.create('testfile.mp3');
-      this.file.startRecord();
-
+    if (!this.audio) {
+      this.audio = this.media.create('assets/audio/1001.mp3');
+      this.audio.startRecord();
     } else {
-      this.file.stopRecord();
+      this.audio.stopRecord();
     }
   }
 
