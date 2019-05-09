@@ -16,8 +16,6 @@
       <div>
         <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
         <ion-card style="width: 80%;display: block;margin: 6px auto;">
-          <!-- <ion-img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" (click)="playSound(page)">
-          </ion-img> -->
           <img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" />
         </ion-card>
         <p>{{page.name}}</p>
