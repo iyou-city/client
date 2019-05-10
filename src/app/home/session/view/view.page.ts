@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
-import { IonSlides } from '@ionic/angular';
+import { File } from '@ionic-native/file/ngx';
+import { IonSlides, Platform } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Book, Page } from '../../../../sdk/book_pb';
@@ -24,8 +25,10 @@ export class ViewPage implements OnInit {
   };
 
   constructor(
+    private file: File,
     private media: Media,
-    private router: Router) { }
+    private router: Router,
+    private platform: Platform) { }
 
   ngOnInit() {
     console.log(utilService.book);
@@ -48,13 +51,24 @@ export class ViewPage implements OnInit {
     } else {
       //new Audio('assets/audio/1001.mp3').play();
       this.audio.play();
+      this.audio.setVolume(0.8);
     }
   }
 
   audio: MediaObject;
   recordSound() {
     if (!this.audio) {
-      this.audio = this.media.create('assets/audio/1001.mp3');
+      // this.audio = this.media.create('assets/audio/1001.mp3');      
+      if (this.platform.is('ios')) {
+        let fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.3gp';
+        let filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
+        this.audio = this.media.create(filePath);
+      } else if (this.platform.is('android')) {
+        let fileName = 'record' + new Date().getDate() + new Date().getMonth() + new Date().getFullYear() + new Date().getHours() + new Date().getMinutes() + new Date().getSeconds() + '.3gp';
+        let filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
+        this.audio = this.media.create(filePath);
+      }
+
       this.audio.startRecord();
     } else {
       this.audio.stopRecord();
