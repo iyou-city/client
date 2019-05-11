@@ -16,23 +16,30 @@
       <ion-label>级别{{book.category}}</ion-label>
     </ion-chip>
     <ion-chip slot="end" color="success" outline="true">
-      <ion-icon name="keypad"></ion-icon>
+      <ion-icon name="eye"></ion-icon>
       <ion-label>阅读数{{book.count}}</ion-label>
     </ion-chip>
   </ion-toolbar>
-  <ion-card style="margin:0 20px">
-    <img src="{{host}}/uploads/{{book.cover.url}}" />
-  </ion-card>
-  <ion-toolbar text-center>
-    <ion-button color="success" (click)="gotoRead()">
-      <ion-icon slot="icon-only" name="volume-high"></ion-icon>
-      Listen
-    </ion-button>
-    <ion-button color="success">
-      <ion-icon slot="icon-only" name="microphone"></ion-icon>
-      Read
-    </ion-button>
-  </ion-toolbar>
+  <div style="margin:0 10px">
+    <ion-card>
+      <img src="{{host}}/uploads/{{book.cover.url}}" />
+    </ion-card>
+    <ion-fab vertical="center" horizontal="center" slot="fixed">
+      <ion-fab-button color="success">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="start">
+        <ion-fab-button (click)="gotoRead()">
+          <ion-icon name="volume-high"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+      <ion-fab-list side="end">
+        <ion-fab-button>
+          <ion-icon name="microphone"></ion-icon>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab>
+  </div>
   <!-- <ion-item href="https://www.ionicframework.com">
     <ion-label>
       Read history
