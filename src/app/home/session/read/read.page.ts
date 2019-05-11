@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
 import { File } from '@ionic-native/file/ngx';
-import { IonSlides, Platform } from '@ionic/angular';
+import { IonSlides, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
-import { Book, Page } from '../../../../sdk/book_pb';
+import { Media } from '@ionic-native/media/ngx';
+import { Book, Page, Media as MultiMedia } from '../../../../sdk/book_pb';
 import { apiService, utilService } from '../../../service/api.service';
 
 @Component({
@@ -15,6 +15,7 @@ export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
   host = utilService.host;
   book: Book.AsObject;
+  audios = new Map<string, MultiMedia.AsObject>();
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
@@ -28,7 +29,8 @@ export class ReadPage implements OnInit {
     private file: File,
     private media: Media,
     private router: Router,
-    private platform: Platform) { }
+    private platform: Platform,
+    private toastController: ToastController) { }
 
   ngOnInit() {
     console.log(utilService.book);
@@ -46,39 +48,40 @@ export class ReadPage implements OnInit {
   }
 
   playSound(page: Page.AsObject) {
-    if (!this.audio) {
-      new Audio(utilService.host + '/uploads/' + page.sound.url).play();
+    new Audio(utilService.host + '/uploads/' + page.sound.url).play();
+  }
+
+  async playYours(page: Page.AsObject) {
+    if (!this.audios[page.name]) {
+      const toast = await this.toastController.create({
+        message: '长按录音',
+        position: 'middle',
+        color: 'success',
+        duration: 1000
+      });
+      toast.present();
     } else {
-      //new Audio('assets/audio/1001.mp3').play();
-      this.audio.play();
+      this.audios[page.name].play();
     }
   }
 
-  audio: MediaObject;
-  recordSound() {
-    if (!this.audio) {
-      // this.audio = this.media.create('assets/audio/1001.mp3');      
-      if (this.platform.is('ios')) {
-        let fileName = 'record' + new Date().toDateString() + '.3gp';
-        let filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
-        this.audio = this.media.create(filePath);
-      } else if (this.platform.is('android')) {
-        let fileName = 'record' + new Date().toDateString() + '.3gp';
-        let filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
-        this.audio = this.media.create(filePath);
-      }
-
-      this.audio.startRecord();
-    } else {
-      this.audio.stopRecord();
+  onPress(page: Page.AsObject) {
+    let fileName = 'record' + page.name + '.3gp';
+    let filePath = '';
+    if (this.platform.is('ios')) {
+      filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
+    } else if (this.platform.is('android')) {
+      filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
     }
+    this.audios[page.name] = this.media.create(filePath);
+    this.audios[page.name].startRecord();
   }
 
-  pressHold(event) {
-    alert('长按开始录音...' + JSON.stringify(event));
+  onPressUp(page: Page.AsObject) {
+    this.audios[page.name].stopRecord();
   }
 
   back() {
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('view');
   }
 }
