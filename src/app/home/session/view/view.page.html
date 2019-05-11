@@ -5,36 +5,35 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title text-center>{{book.title}}</ion-title>
+    <ion-title>{{book.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)">
-    <ion-slide *ngFor="let page of book.pageList;index as i">
-      <div>
-        <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
-        <ion-card style="width: 80%;display: block;margin: 6px auto;">
-          <img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" />
-        </ion-card>
-        <p>{{page.name}}</p>
-        <br /><br />
-        <!-- <ion-buttons style="display: block"> -->
-        <ion-button (click)="playSound(page)" color="success">
-          <ion-icon slot="icon-only" name="mic"></ion-icon>
-        </ion-button>
-        <ion-button (click)="recordSound()" color="success">
-          <ion-icon slot="icon-only" name="microphone"></ion-icon>
-        </ion-button>
-        <!-- </ion-buttons> -->
-      </div>
-    </ion-slide>
-    <!-- <ion-slide *ngFor="let video of article.videosList">
-      <video controls style="width:100%;">
-        <source [src]="video" type="video/mp4" />
-      </video>
-    </ion-slide> -->
-  </ion-slides>
-
+  <ion-toolbar>
+    <ion-chip slot="end" color="success">
+      <ion-icon name="pin"></ion-icon>
+      <ion-label>{{book.category}}级别</ion-label>
+    </ion-chip>
+    <ion-chip slot="end" color="success">
+      <ion-icon name="pin"></ion-icon>
+      <ion-label>{{book.count}}阅读数</ion-label>
+    </ion-chip>
+  </ion-toolbar>
+  <ion-card text-center>
+    <img src="{{host}}/uploads/{{book.cover.url}}" />
+    <ion-button color="success" (click)="gotoRead()">
+      <ion-icon slot="icon-only" name="volume-high"></ion-icon>
+      Listen
+    </ion-button>
+    <ion-button color="success">
+      <ion-icon slot="icon-only" name="microphone"></ion-icon>
+      Read
+    </ion-button>
+  </ion-card>
+  <ion-item href="https://www.ionicframework.com">
+    <ion-label>
+      Read history
+    </ion-label>
+  </ion-item>
 </ion-content>

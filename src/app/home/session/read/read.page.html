@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title text-center>{{book.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)">
+    <ion-slide *ngFor="let page of book.pageList;index as i">
+      <div>
+        <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
+        <ion-card style="width: 80%;display: block;margin: 6px auto;">
+          <img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" />
+        </ion-card>
+        <p>{{page.name}}</p>
+        <br /><br />
+        <!-- <ion-buttons style="display: block"> -->
+        <ion-button (click)="playSound(page)" color="success">
+          <ion-icon slot="icon-only" name="mic"></ion-icon>
+        </ion-button>
+        <ion-button (click)="recordSound()" color="success">
+          <ion-icon slot="icon-only" name="microphone"></ion-icon>
+        </ion-button>
+        <!-- </ion-buttons> -->
+      </div>
+    </ion-slide>
+    <!-- <ion-slide *ngFor="let video of article.videosList">
+      <video controls style="width:100%;">
+        <source [src]="video" type="video/mp4" />
+      </video>
+    </ion-slide> -->
+  </ion-slides>
+</ion-content>

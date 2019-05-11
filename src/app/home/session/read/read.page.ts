@@ -7,11 +7,11 @@ import { Book, Page } from '../../../../sdk/book_pb';
 import { apiService, utilService } from '../../../service/api.service';
 
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.page.html',
-  styleUrls: ['./view.page.scss'],
+  selector: 'app-read',
+  templateUrl: './read.page.html',
+  styleUrls: ['./read.page.scss'],
 })
-export class ViewPage implements OnInit {
+export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
   host = utilService.host;
   book: Book.AsObject;
@@ -36,7 +36,7 @@ export class ViewPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    // this.playSound(this.book.pageList[0]);
+    this.playSound(this.book.pageList[0]);
   }
 
   slideChange(event) {
@@ -72,10 +72,6 @@ export class ViewPage implements OnInit {
     } else {
       this.audio.stopRecord();
     }
-  }
-
-  gotoRead() {
-    this.router.navigateByUrl('read');
   }
 
   back() {
