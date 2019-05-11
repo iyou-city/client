@@ -74,6 +74,10 @@ export class ReadPage implements OnInit {
     }
   }
 
+  pressHold(event) {
+    alert('长按开始录音...' + JSON.stringify(event));
+  }
+
   back() {
     this.router.navigateByUrl('home');
   }
