@@ -11,17 +11,19 @@
 
 <ion-content>
   <ion-toolbar>
-    <ion-chip slot="end" color="success">
-      <ion-icon name="pin"></ion-icon>
-      <ion-label>{{book.category}}级别</ion-label>
+    <ion-chip slot="end" color="success" outline="true">
+      <ion-icon name="podium"></ion-icon>
+      <ion-label>级别{{book.category}}</ion-label>
     </ion-chip>
-    <ion-chip slot="end" color="success">
-      <ion-icon name="pin"></ion-icon>
-      <ion-label>{{book.count}}阅读数</ion-label>
+    <ion-chip slot="end" color="success" outline="true">
+      <ion-icon name="keypad"></ion-icon>
+      <ion-label>阅读数{{book.count}}</ion-label>
     </ion-chip>
   </ion-toolbar>
-  <ion-card text-center>
+  <ion-card style="margin:0 20px">
     <img src="{{host}}/uploads/{{book.cover.url}}" />
+  </ion-card>
+  <ion-toolbar text-center>
     <ion-button color="success" (click)="gotoRead()">
       <ion-icon slot="icon-only" name="volume-high"></ion-icon>
       Listen
@@ -30,10 +32,10 @@
       <ion-icon slot="icon-only" name="microphone"></ion-icon>
       Read
     </ion-button>
-  </ion-card>
-  <ion-item href="https://www.ionicframework.com">
+  </ion-toolbar>
+  <!-- <ion-item href="https://www.ionicframework.com">
     <ion-label>
       Read history
     </ion-label>
-  </ion-item>
+  </ion-item> -->
 </ion-content>
