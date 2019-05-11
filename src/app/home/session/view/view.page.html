@@ -23,21 +23,21 @@
   <div style="margin:0 10px">
     <ion-card>
       <img src="{{host}}/uploads/{{book.cover.url}}" />
+      <ion-grid>
+        <ion-row>
+          <ion-col text-center>
+            <ion-button color="success" (click)="gotoRead()" style="--border-radius: 50%;width: 40px;height: 40px;">
+              <ion-icon slot="icon-only" name="volume-high"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col text-center>
+            <ion-button color="success" style="--border-radius: 50%;width: 40px;height: 40px;">
+              <ion-icon slot="icon-only" name="microphone"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </ion-card>
-    <ion-grid>
-      <ion-row>
-        <ion-col text-center>
-          <ion-button color="success" (click)="gotoRead()" style="--border-radius: 50%;width: 40px;height: 40px;">
-            <ion-icon name="volume-high"></ion-icon>
-          </ion-button>
-        </ion-col>
-        <ion-col text-center>
-          <ion-button color="success" style="--border-radius: 50%;width: 40px;height: 40px;">
-            <ion-icon name="microphone"></ion-icon>
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
     <!-- <ion-fab vertical="center" horizontal="center" slot="fixed">
       <ion-fab-button color="success">
         <ion-icon name="add"></ion-icon>
