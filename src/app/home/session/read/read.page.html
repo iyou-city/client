@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title text-center>{{book.title}}</ion-title>
+    <ion-title>{{book.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,18 +13,23 @@
   <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <div>
-        <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
-        <ion-card style="width: 80%;display: block;margin: 6px auto;">
+        <p>
+          <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
+        </p>
+        <ion-card style="width: 90%;display: block;margin: 6px auto;">
           <img src="{{host}}/uploads/{{page.picture.url}}" (ionImgDidLoad)="playSound(page)" />
         </ion-card>
-        <p>{{page.name}}</p>
         <br /><br />
+        <p>{{page.name}}</p>
+        <br /><br /><br /><br />
         <!-- <ion-buttons style="display: block"> -->
         <ion-button (click)="playSound(page)" color="success">
-          <ion-icon slot="icon-only" name="mic"></ion-icon>
+          <ion-icon slot="icon-only" name="volume-high"></ion-icon>
+          原声
         </ion-button>
         <ion-button (click)="recordSound()" color="success">
           <ion-icon slot="icon-only" name="microphone"></ion-icon>
+          录音
         </ion-button>
         <!-- </ion-buttons> -->
       </div>

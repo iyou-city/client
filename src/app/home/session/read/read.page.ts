@@ -19,7 +19,7 @@ export class ReadPage implements OnInit {
     slidesPerView: 1,
     effect: 'flip',
     autoplay: {
-      delay: 2000,
+      delay: 3000,
       stopOnLastSlide: true,
     }
   };
