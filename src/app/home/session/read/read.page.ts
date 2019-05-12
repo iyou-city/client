@@ -75,15 +75,10 @@ export class ReadPage implements OnInit {
     } else if (this.platform.is('android')) {
       filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
     }
-    let mediaFile = this.media.create(filePath);
-    mediaFile.onSuccess.subscribe(() => {
-      console.log('Action is successful')
-    });
-    mediaFile.onError.subscribe(error => {
-      console.log('Error!', error)
-      alert(JSON.stringify(error));
-    });
-    this.audios.set(fullPageName, mediaFile);
+
+    if (!this.audios.get(fullPageName)) {
+      this.audios.set(fullPageName, this.media.create(filePath));
+    }
     this.audios.get(fullPageName).startRecord();
   }
 
