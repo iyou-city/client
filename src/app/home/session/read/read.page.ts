@@ -66,7 +66,7 @@ export class ReadPage implements OnInit {
 
   onPress(page: Page.AsObject, book: Book.AsObject) {
     let fullPageName = book.title + "-" + page.name
-    document.getElementById(fullPageName)['color'] = 'light';
+    document.getElementById(fullPageName)['color'] = 'warning';
     let fileName = fullPageName + '.3gp';
     let filePath = '';
     if (this.platform.is('ios')) {
