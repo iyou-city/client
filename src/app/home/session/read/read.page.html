@@ -19,8 +19,8 @@
   <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)" style="height:100%">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <ion-grid>
-        <ion-row>
-          <ion-col text-center>
+        <ion-row align-items-center>
+          <ion-col>
             <ion-badge color="success">{{i+1}}/{{book.pageList.length}}</ion-badge>
           </ion-col>
         </ion-row>
@@ -32,12 +32,12 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col text-center>
+          <ion-col>
             <p>{{page.name}}</p>
           </ion-col>
         </ion-row>
         <ion-row>
-          <ion-col text-center>
+          <ion-col>
             <ion-button (click)="playOringial(page)" color="success">
               <ion-icon slot="icon-only" name="volume-high"></ion-icon>
               原声
