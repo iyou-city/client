@@ -37,34 +37,45 @@ export class ReadPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.playSound(this.book.pageList[0]);
+    this.playSound(this.book.pageList[0], this.book);
   }
 
   slideChange(event) {
     this.slides.getActiveIndex().then(e => {
-      this.playSound(this.book.pageList[e]);
+      this.playSound(this.book.pageList[e], this.book);
     });
   }
 
-  playSound(page: Page.AsObject) {
+  playSound(page: Page.AsObject, book: Book.AsObject) {
+    if (utilService.isOriginal) {
+      this.playOringial(page);
+    } else {
+      this.playYours(page, book);
+    }
+  }
+
+  playOringial(page: Page.AsObject) {
     new Audio(utilService.host + '/uploads/' + page.sound.url).play();
   }
 
   async playYours(page: Page.AsObject, book: Book.AsObject) {
     let fullPageName = book.title + "-" + page.name
     if (!this.audios.get(fullPageName)) {
+      this.slides.stopAutoplay();
       const toast = await this.toastController.create({
-        message: '长按录音',
+        message: '长按[录音]键,进行录音',
         color: 'success',
-        duration: 1000
+        duration: 2000
       });
       toast.present();
     } else {
+      //this.slides.startAutoplay();
       this.audios.get(fullPageName).play();
     }
   }
 
   onPress(page: Page.AsObject, book: Book.AsObject) {
+    this.slides.stopAutoplay();
     let fullPageName = book.title + "-" + page.name
     document.getElementById(fullPageName)['color'] = 'warning';
     let fileName = fullPageName + '.3gp';

@@ -32,6 +32,7 @@ export class UtilService {
   audiosCache = new Map<string, MediaObject>();
   book = (new Book).toObject();
   host = 'http://192.168.123.121:80';
+  isOriginal = true;
 
   constructor() { }
 

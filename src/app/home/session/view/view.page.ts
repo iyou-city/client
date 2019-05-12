@@ -31,7 +31,6 @@ export class ViewPage implements OnInit {
     private platform: Platform) { }
 
   ngOnInit() {
-    console.log(utilService.book);
     this.book = utilService.book;
   }
 
@@ -74,7 +73,13 @@ export class ViewPage implements OnInit {
     }
   }
 
-  gotoRead() {
+  originalRead() {
+    utilService.isOriginal = true;
+    this.router.navigateByUrl('read');
+  }
+
+  yoursRead() {
+    utilService.isOriginal = false;
     this.router.navigateByUrl('read');
   }
 
