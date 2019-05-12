@@ -60,7 +60,6 @@ export class ReadPage implements OnInit {
       });
       toast.present();
     } else {
-      this.audios.get(fullPageName).setVolume(1.0);
       this.audios.get(fullPageName).play();
     }
   }
@@ -76,9 +75,10 @@ export class ReadPage implements OnInit {
       filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
     }
 
-    if (!this.audios.get(fullPageName)) {
-      this.audios.set(fullPageName, this.media.create(filePath));
+    if (this.audios.get(fullPageName)) {
+      this.audios.get(fullPageName).release();
     }
+    this.audios.set(fullPageName, this.media.create(filePath));
     this.audios.get(fullPageName).startRecord();
   }
 
@@ -86,6 +86,7 @@ export class ReadPage implements OnInit {
     let fullPageName = book.title + "-" + page.name
     this.audios.get(fullPageName).stopRecord();
     document.getElementById(fullPageName)['color'] = 'success';
+    this.audios.get(fullPageName).play();
   }
 
   back() {
