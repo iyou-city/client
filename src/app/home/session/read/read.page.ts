@@ -16,6 +16,7 @@ export class ReadPage implements OnInit {
   host = utilService.host;
   book: Book.AsObject;
   audios = utilService.audiosCache;
+  autoPlay = true;
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
@@ -40,6 +41,11 @@ export class ReadPage implements OnInit {
     this.playSound(this.book.pageList[0], this.book);
   }
 
+  markAutoPlay() {
+    this.autoPlay = true;
+    this.slides.startAutoplay();
+  }
+
   slideChange(event) {
     this.slides.getActiveIndex().then(e => {
       this.playSound(this.book.pageList[e], this.book);
@@ -62,20 +68,21 @@ export class ReadPage implements OnInit {
     let fullPageName = book.title + "-" + page.name
     if (!this.audios.get(fullPageName)) {
       this.slides.stopAutoplay();
+      this.autoPlay = false;
       const toast = await this.toastController.create({
-        message: '长按[录音]键,进行录音',
+        message: '长按[录音]键，进行录音',
         color: 'success',
         duration: 2000
       });
       toast.present();
     } else {
-      //this.slides.startAutoplay();
       this.audios.get(fullPageName).play();
     }
   }
 
   onPress(page: Page.AsObject, book: Book.AsObject) {
     this.slides.stopAutoplay();
+    this.autoPlay = false;
     let fullPageName = book.title + "-" + page.name
     document.getElementById(fullPageName)['color'] = 'warning';
     let fileName = fullPageName + '.3gp';
