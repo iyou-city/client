@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { File } from '@ionic-native/file/ngx';
 import { IonSlides, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Media, MediaObject } from '@ionic-native/media/ngx';
+import { Media } from '@ionic-native/media/ngx';
 import { Book, Page } from '../../../../sdk/book_pb';
 import { apiService, utilService } from '../../../service/api.service';
 
@@ -15,7 +15,7 @@ export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
   host = utilService.host;
   book: Book.AsObject;
-  audios = new Map<string, MediaObject>();
+  audios = utilService.audiosCache;
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
@@ -33,7 +33,6 @@ export class ReadPage implements OnInit {
     private toastController: ToastController) { }
 
   ngOnInit() {
-    console.log(utilService.book);
     this.book = utilService.book;
   }
 
@@ -55,17 +54,18 @@ export class ReadPage implements OnInit {
     if (!this.audios.get(page.name)) {
       const toast = await this.toastController.create({
         message: '长按录音',
-        position: 'middle',
         color: 'success',
         duration: 1000
       });
       toast.present();
     } else {
+      this.audios.get(page.name).setVolume(1.0);
       this.audios.get(page.name).play();
     }
   }
 
   onPress(page: Page.AsObject) {
+    document.getElementById(page.name)['color'] = 'light';
     let fileName = 'record' + page.name + '.3gp';
     let filePath = '';
     if (this.platform.is('ios')) {
@@ -79,6 +79,7 @@ export class ReadPage implements OnInit {
 
   onPressUp(page: Page.AsObject) {
     this.audios.get(page.name).stopRecord();
+    document.getElementById(page.name)['color'] = 'success';
   }
 
   back() {

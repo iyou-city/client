@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../../sdk/user_pb';
 import { Book } from '../../sdk/book_pb';
 import { Message } from '../../sdk/message_pb';
+import { MediaObject } from '@ionic-native/media/ngx';
 import { environment } from '../../environments/environment';
 import { ArticlesClient } from '../../sdk/article_grpc_web_pb';
 import { BooksClient } from '../../sdk/book_grpc_web_pb';
@@ -28,6 +29,7 @@ export class ApiService {
 export class UtilService {
   userId = '';
   msgCache = new Map<string, Message.AsObject[]>();
+  audiosCache = new Map<string, MediaObject>();
   book = (new Book).toObject();
   host = 'http://192.168.123.121:80';
 
