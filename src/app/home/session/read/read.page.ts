@@ -50,8 +50,9 @@ export class ReadPage implements OnInit {
     new Audio(utilService.host + '/uploads/' + page.sound.url).play();
   }
 
-  async playYours(page: Page.AsObject) {
-    if (!this.audios.get(page.name)) {
+  async playYours(page: Page.AsObject, book: Book.AsObject) {
+    let fullPageName = book.title + "-" + page.name
+    if (!this.audios.get(fullPageName)) {
       const toast = await this.toastController.create({
         message: '长按录音',
         color: 'success',
@@ -59,27 +60,29 @@ export class ReadPage implements OnInit {
       });
       toast.present();
     } else {
-      this.audios.get(page.name).setVolume(1.0);
-      this.audios.get(page.name).play();
+      this.audios.get(fullPageName).setVolume(1.0);
+      this.audios.get(fullPageName).play();
     }
   }
 
-  onPress(page: Page.AsObject) {
-    document.getElementById(page.name)['color'] = 'light';
-    let fileName = 'record' + page.name + '.3gp';
+  onPress(page: Page.AsObject, book: Book.AsObject) {
+    let fullPageName = book.title + "-" + page.name
+    document.getElementById(fullPageName)['color'] = 'light';
+    let fileName = fullPageName + '.3gp';
     let filePath = '';
     if (this.platform.is('ios')) {
       filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
     } else if (this.platform.is('android')) {
       filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
     }
-    this.audios.set(page.name, this.media.create(filePath));
-    this.audios.get(page.name).startRecord();
+    this.audios.set(fullPageName, this.media.create(filePath));
+    this.audios.get(fullPageName).startRecord();
   }
 
-  onPressUp(page: Page.AsObject) {
-    this.audios.get(page.name).stopRecord();
-    document.getElementById(page.name)['color'] = 'success';
+  onPressUp(page: Page.AsObject, book: Book.AsObject) {
+    let fullPageName = book.title + "-" + page.name
+    this.audios.get(fullPageName).stopRecord();
+    document.getElementById(fullPageName)['color'] = 'success';
   }
 
   back() {

@@ -27,7 +27,8 @@
           <ion-icon slot="icon-only" name="volume-high"></ion-icon>
           原声
         </ion-button>
-        <ion-button (click)="playYours(page)" id="{{page.name}}" (press)="onPress(page)" (pressup)="onPressUp(page)" color="success">
+        <ion-button (click)="playYours(page,book)" id="{{book.title}}-{{page.name}}" (press)="onPress(page,book)"
+          (pressup)="onPressUp(page,book)" color="success">
           <ion-icon slot="icon-only" name="microphone"></ion-icon>
           录音
         </ion-button>
