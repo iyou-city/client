@@ -105,6 +105,7 @@ export class ReadPage implements OnInit {
     this.audios.get(fullPageName).stopRecord();
     document.getElementById(fullPageName)['color'] = 'success';
     this.audios.get(fullPageName).play();
+    this.markAutoPlay();
   }
 
   back() {
