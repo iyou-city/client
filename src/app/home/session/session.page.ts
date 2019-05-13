@@ -15,6 +15,11 @@ import { apiService, utilService } from '../../service/api.service';
 export class SessionPage implements OnInit {
   host = utilService.host;
   books: Book.AsObject[] = [];
+  levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  sliderConfig = {
+    slidesPerView: 6,
+    effect: 'flip'
+  };
 
   constructor(private router: Router) { }
 

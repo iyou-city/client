@@ -72,6 +72,7 @@ export class ReadPage implements OnInit {
         duration: 2000
       });
       toast.present();
+      this.slides.stopAutoplay();
       setTimeout(() => {
         this.router.navigateByUrl('login');
       }, 2000);
