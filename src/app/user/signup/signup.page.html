@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color="warning">
+  <ion-toolbar color="success">
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
@@ -15,7 +15,7 @@
     </ion-item>
  
     <ion-item>
-      <ion-label stacked>用户昵称</ion-label>
+      <ion-label stacked>宝贝昵称</ion-label>
       <ion-input type="text" [(ngModel)]="user.name"></ion-input>
     </ion-item>
  
@@ -31,10 +31,10 @@
   </ion-list>
   <ion-row>
     <ion-col>
-      <ion-button color="warning" (click)="signup()" expand="block">注册</ion-button>
+      <ion-button color="success" (click)="signup()" expand="block">注册</ion-button>
     </ion-col>
     <ion-col>
-      <ion-button color="warning" (click)="login()" expand="block">已有账号？登陆</ion-button>
+      <ion-button color="success" (click)="login()" expand="block">已有账号？登陆</ion-button>
     </ion-col>
   </ion-row>
 </ion-content>

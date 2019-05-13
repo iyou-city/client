@@ -65,6 +65,18 @@ export class ReadPage implements OnInit {
   }
 
   async playYours(page: Page.AsObject, book: Book.AsObject) {
+    if (!utilService.getUser()) {
+      const toast = await this.toastController.create({
+        message: '录音功能，请登录后再操作',
+        color: 'success',
+        duration: 2000
+      });
+      toast.present();
+      setTimeout(() => {
+        this.router.navigateByUrl('login');
+      }, 2000);
+      return
+    }
     let fullPageName = book.title + "-" + page.name
     if (!this.audios.get(fullPageName)) {
       this.slides.stopAutoplay();
