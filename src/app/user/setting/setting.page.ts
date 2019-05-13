@@ -20,6 +20,9 @@ export class SettingPage implements OnInit {
     private camera: Camera) { }
 
   ngOnInit() {
+    if (!utilService.getUser()) {
+      this.router.navigateByUrl('login');
+    }
   }
 
   select() {

@@ -17,14 +17,14 @@ export class AppComponent {
       url: '/setting',
       icon: 'key'
     },
-    {
-      title: '对话',
-      url: '/home',
-      icon: 'list-box'
-    },
+    // {
+    //   title: '对话',
+    //   url: '/home',
+    //   icon: 'list-box'
+    // },
     {
       title: '通知',
-      url: '/list',
+      url: '/home',
       icon: 'notifications'
     },
     {
