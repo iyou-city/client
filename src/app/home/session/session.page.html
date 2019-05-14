@@ -14,7 +14,9 @@
     Level:
     <ion-slides [options]="sliderConfig" style="width:100%">
       <ion-slide *ngFor="let level of levels">
-        <ion-label color="success">{{level}}</ion-label>
+        <ion-button color="success" style="--border-radius: 50%;height:20px;width:20px;">
+          {{level}}
+        </ion-button>
       </ion-slide>
     </ion-slides>
   </ion-item>
