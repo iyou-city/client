@@ -4,6 +4,7 @@ import { IonSlides, Platform } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Media, MediaObject } from '@ionic-native/media/ngx';
 import { Book, Page } from '../../../../sdk/book_pb';
+import { environment } from '../../../../environments/environment';
 import { apiService, utilService } from '../../../service/api.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { apiService, utilService } from '../../../service/api.service';
 })
 export class ViewPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
-  host = utilService.host;
+  host = environment.webUrl;
   book: Book.AsObject;
   slideOpts = {
     slidesPerView: 1,
@@ -46,7 +47,7 @@ export class ViewPage implements OnInit {
 
   playSound(page: Page.AsObject) {
     if (!this.audio) {
-      new Audio(utilService.host + '/uploads/' + page.sound.url).play();
+      new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
     } else {
       //new Audio('assets/audio/1001.mp3').play();
       this.audio.play();

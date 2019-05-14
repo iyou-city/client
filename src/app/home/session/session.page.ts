@@ -4,6 +4,7 @@ import { Book, Page, Media } from '../../../sdk/book_pb';
 import { Group } from '../../../sdk/group_pb';
 import { Topic } from '../../../sdk/message_pb';
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { Empty } from 'google-protobuf/google/protobuf/empty_pb';
 import { apiService, utilService } from '../../service/api.service';
 
@@ -13,7 +14,7 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./session.page.scss'],
 })
 export class SessionPage implements OnInit {
-  host = utilService.host;
+  host = environment.webUrl;
   books: Book.AsObject[] = [];
   levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   sliderConfig = {

@@ -4,6 +4,7 @@ import { IonSlides, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Media } from '@ionic-native/media/ngx';
 import { Book, Page } from '../../../../sdk/book_pb';
+import { environment } from '../../../../environments/environment';
 import { apiService, utilService } from '../../../service/api.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { apiService, utilService } from '../../../service/api.service';
 })
 export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
-  host = utilService.host;
+  host = environment.webUrl;
   book: Book.AsObject;
   audios = utilService.audiosCache;
   autoPlay = true;
@@ -38,7 +39,7 @@ export class ReadPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.playSound(this.book.pageList[0], this.book);
+    this.slideChange(null);
   }
 
   markAutoPlay() {
@@ -61,7 +62,7 @@ export class ReadPage implements OnInit {
   }
 
   playOringial(page: Page.AsObject) {
-    new Audio(utilService.host + '/uploads/' + page.sound.url).play();
+    new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
   }
 
   async playYours(page: Page.AsObject, book: Book.AsObject) {
@@ -73,9 +74,10 @@ export class ReadPage implements OnInit {
       });
       toast.present();
       this.slides.stopAutoplay();
+      this.autoPlay = false;
       setTimeout(() => {
         this.router.navigateByUrl('login');
-      }, 2000);
+      }, 1000);
       return
     }
     let fullPageName = book.title + "-" + page.name

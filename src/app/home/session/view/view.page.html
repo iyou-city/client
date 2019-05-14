@@ -13,11 +13,11 @@
   <ion-toolbar>
     <ion-chip slot="end" color="success" outline="true">
       <ion-icon name="podium"></ion-icon>
-      <ion-label>级别{{book.category}}</ion-label>
+      <ion-label>级别{{book.level==0?'':book.level}}</ion-label>
     </ion-chip>
     <ion-chip slot="end" color="success" outline="true">
       <ion-icon name="eye"></ion-icon>
-      <ion-label>阅读数{{book.count}}</ion-label>
+      <ion-label>阅读数{{book.amount==0?'':book.amount}}</ion-label>
     </ion-chip>
   </ion-toolbar>
   <div style="margin:0 10px">
