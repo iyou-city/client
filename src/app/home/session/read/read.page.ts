@@ -18,6 +18,7 @@ export class ReadPage implements OnInit {
   book: Book.AsObject;
   audios = utilService.audiosCache;
   autoPlay = true;
+  //showShare = false;
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
@@ -50,8 +51,12 @@ export class ReadPage implements OnInit {
   slideChange(event) {
     this.slides.getActiveIndex().then(e => {
       this.playSound(this.book.pageList[e], this.book);
+      //this.showShare = (e == this.book.pageList.length - 1);
     });
+
   }
+
+
 
   playSound(page: Page.AsObject, book: Book.AsObject) {
     if (utilService.isOriginal) {

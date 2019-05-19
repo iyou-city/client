@@ -43,7 +43,7 @@
               原声
             </ion-button>
             <ion-button (click)="playYours(page,book)" id="{{book.title}}-{{page.name}}" (press)="onPress(page,book)"
-              (pressup)="onPressUp(page,book)" color="success">
+              (pressup)="onPressUp(page,book)" (touchend)="onPressUp(page,book)" color="success">
               <ion-icon slot="icon-only" name="microphone"></ion-icon>
               录音
             </ion-button>
@@ -71,4 +71,9 @@
       </div> -->
     </ion-slide>
   </ion-slides>
+  <!-- <ion-fab *ngIf="showShare" vertical="bottom" horizontal="center">
+    <ion-fab-button color="success">
+      <ion-icon name="logo-vimeo"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
 </ion-content>
