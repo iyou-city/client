@@ -3,6 +3,7 @@ import { File } from '@ionic-native/file/ngx';
 import { IonSlides, Platform, ToastController } from '@ionic/angular';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Media } from '@ionic-native/media/ngx';
+import { Wechat } from '@ionic-native/wechat/ngx';
 import { Book, Page } from '../../../../sdk/book_pb';
 import { environment } from '../../../../environments/environment';
 import { apiService, utilService } from '../../../service/api.service';
@@ -31,6 +32,7 @@ export class ReadPage implements OnInit {
   constructor(
     private file: File,
     private media: Media,
+    private wechat: Wechat,
     private router: Router,
     private platform: Platform,
     private toastController: ToastController) { }
@@ -130,5 +132,27 @@ export class ReadPage implements OnInit {
 
   back() {
     this.router.navigateByUrl('view');
+  }
+
+  shareToWebchat() {
+    this.wechat.share({
+      message: {
+        title: "Hi, there",
+        description: "This is description.",
+        thumb: "www/img/thumbnail.png",
+        mediaTagName: "TEST-TAG-001",
+        messageExt: "这是第三方带的测试字段",
+        messageAction: "<action>dotalist</action>",
+        media: {
+          type: this.wechat.Type.WEBPAGE,
+          webpageUrl: "http://www.google.com"
+        }
+      },
+      scene: this.wechat.Scene.TIMELINE   // share to Timeline
+    }).then(e => {
+
+    }).catch(err => {
+
+    });
   }
 }
