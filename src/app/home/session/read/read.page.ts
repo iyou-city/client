@@ -144,7 +144,7 @@ export class ReadPage implements OnInit {
         messageExt: "这是第三方带的测试字段",
         messageAction: "<action>dotalist</action>",
         media: {
-          type: this.wechat.Type.WEBPAGE,
+          type: 7,// this.wechat.Type.WEBPAGE,
           webpageUrl: "http://www.bing.com"
         }
       },
