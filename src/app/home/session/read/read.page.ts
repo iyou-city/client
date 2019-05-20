@@ -136,21 +136,10 @@ export class ReadPage implements OnInit {
 
   shareToWebchat() {
     this.wechat.share({
-      message: {
-        title: "Hi, there",
-        description: "This is description.",
-        thumb: "www/img/thumbnail.png",
-        mediaTagName: "TEST-TAG-001",
-        messageExt: "这是第三方带的测试字段",
-        messageAction: "<action>dotalist</action>",
-        media: {
-          type: this.wechat.Type.WEBPAGE,
-          webpageUrl: "http://www.bing.com"
-        }
-      },
+      text: "This is just a plain string",
       scene: this.wechat.Scene.TIMELINE   // share to Timeline
     }).then(() => {
-
+      alert('ok');
     }).catch(err => {
       alert(JSON.stringify(err));
     });
