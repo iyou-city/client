@@ -134,7 +134,7 @@ export class ReadPage implements OnInit {
   shareToWechat() {
     this.wechat.share({
       message: {
-        title: "[IYou绘本]一天一读之" + this.book.title,
+        title: "[IYou绘本]幼儿英语一天一读之(" + this.book.title + ")",
         description: "This is description.",
         thumb: "www/img/thumbnail.png",
         mediaTagName: "TEST-TAG-001",
@@ -147,7 +147,7 @@ export class ReadPage implements OnInit {
       },
       scene: 1,//this.wechat.Scene.TIMELINE   // share to Timeline
     }).then(() => {
-      alert("Success");
+      console.log("Success");
     }).catch(err => {
       alert(JSON.stringify(err));
     });
