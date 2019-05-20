@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-button (click)="shareToWebchat()">
+      <ion-button (click)="back()">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -71,9 +71,9 @@
       </div> -->
     </ion-slide>
   </ion-slides>
-  <!-- <ion-fab *ngIf="showShare" vertical="bottom" horizontal="center">
-    <ion-fab-button color="success">
+  <ion-fab *ngIf="showShare" vertical="bottom" horizontal="center">
+    <ion-fab-button color="success" (click)="shareToWechat()">
       <ion-icon name="logo-vimeo"></ion-icon>
     </ion-fab-button>
-  </ion-fab> -->
+  </ion-fab>
 </ion-content>

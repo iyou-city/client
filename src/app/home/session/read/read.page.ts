@@ -19,7 +19,7 @@ export class ReadPage implements OnInit {
   book: Book.AsObject;
   audios = utilService.audiosCache;
   autoPlay = true;
-  //showShare = false;
+  showShare = false;
   slideOpts = {
     slidesPerView: 1,
     effect: 'flip',
@@ -53,12 +53,9 @@ export class ReadPage implements OnInit {
   slideChange(event) {
     this.slides.getActiveIndex().then(e => {
       this.playSound(this.book.pageList[e], this.book);
-      //this.showShare = (e == this.book.pageList.length - 1);
+      this.showShare = (e == this.book.pageList.length - 1);
     });
-
   }
-
-
 
   playSound(page: Page.AsObject, book: Book.AsObject) {
     if (utilService.isOriginal) {
@@ -134,10 +131,10 @@ export class ReadPage implements OnInit {
     this.router.navigateByUrl('view');
   }
 
-  shareToWebchat() {
+  shareToWechat() {
     this.wechat.share({
       message: {
-        title: "Hi, there",
+        title: "[IYou绘本]一天一读之" + this.book.title,
         description: "This is description.",
         thumb: "www/img/thumbnail.png",
         mediaTagName: "TEST-TAG-001",
