@@ -150,7 +150,7 @@ export class ReadPage implements OnInit {
       },
       scene: 1,//this.wechat.Scene.TIMELINE   // share to Timeline
     }).then(() => {
-
+      alert("Success");
     }).catch(err => {
       alert(JSON.stringify(err));
     });
