@@ -77,7 +77,7 @@ export class ReadPage implements OnInit {
       const toast = await this.toastController.create({
         message: '录音功能，请登录后再操作',
         color: 'success',
-        duration: 2000
+        duration: 3000
       });
       toast.present();
       this.slides.stopAutoplay();
@@ -94,7 +94,7 @@ export class ReadPage implements OnInit {
       const toast = await this.toastController.create({
         message: '长按[录音]键，进行录音',
         color: 'success',
-        duration: 2000
+        duration: 3000
       });
       toast.present();
     } else {
@@ -136,10 +136,21 @@ export class ReadPage implements OnInit {
 
   shareToWebchat() {
     this.wechat.share({
-      text: "This is just a plain string",
-      scene: this.wechat.Scene.TIMELINE   // share to Timeline
+      message: {
+        title: "Hi, there",
+        description: "This is description.",
+        thumb: "www/img/thumbnail.png",
+        mediaTagName: "TEST-TAG-001",
+        messageExt: "这是第三方带的测试字段",
+        messageAction: "<action>dotalist</action>",
+        media: {
+          type: this.wechat.Type.WEBPAGE,
+          webpageUrl: "http://www.bing.com"
+        }
+      },
+      scene: 1,//this.wechat.Scene.TIMELINE   // share to Timeline
     }).then(() => {
-      alert('ok');
+
     }).catch(err => {
       alert(JSON.stringify(err));
     });
