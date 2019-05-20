@@ -145,14 +145,14 @@ export class ReadPage implements OnInit {
         messageAction: "<action>dotalist</action>",
         media: {
           type: this.wechat.Type.WEBPAGE,
-          webpageUrl: "http://www.google.com"
+          webpageUrl: "http://www.bing.com"
         }
       },
       scene: this.wechat.Scene.TIMELINE   // share to Timeline
-    }).then(e => {
+    }).then(() => {
 
     }).catch(err => {
-
+      alert(JSON.stringify(err));
     });
   }
 }
