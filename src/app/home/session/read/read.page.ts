@@ -134,7 +134,7 @@ export class ReadPage implements OnInit {
   shareToWechat() {
     this.wechat.share({
       message: {
-        title: "[IYou绘本]幼儿英语一天一读之(" + this.book.title + ")",
+        title: "[IYou绘本]少儿英语，一天一读之(" + this.book.title + ")",
         description: "This is description.",
         thumb: "www/img/thumbnail.png",
         mediaTagName: "TEST-TAG-001",
@@ -142,7 +142,7 @@ export class ReadPage implements OnInit {
         messageAction: "<action>dotalist</action>",
         media: {
           type: 7,// this.wechat.Type.WEBPAGE,
-          webpageUrl: "http://www.bing.com"
+          webpageUrl: environment.webUrl + '/download'//"http://www.bing.com"
         }
       },
       scene: 1,//this.wechat.Scene.TIMELINE   // share to Timeline
