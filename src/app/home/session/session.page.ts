@@ -33,26 +33,6 @@ export class SessionPage implements OnInit {
       alert(JSON.stringify(err));
       //this.loadGroups();
     });
-    // for (let i = 0; i < 5; i++) {
-    //   let book = new Book();
-    //   book.setTitle('字母abc');
-    //   let cover = new Media();
-    //   cover.setUrl(utilService.host + '/abc/cover.jpg');
-    //   book.setCover(cover);
-    //   for (let j of ['a', 'b', 'c']) {
-    //     let page = new Page();
-    //     page.setName(j);
-    //     let picture = new Media();
-    //     picture.setUrl(utilService.host + '/abc/' + page.getName() + '.png');
-    //     page.setPicture(picture);
-
-    //     let sound = new Media();
-    //     sound.setUrl(utilService.host + '/abc/' + page.getName() + '.mp3');
-    //     page.setSound(sound);
-    //     book.addPage(page);
-    //   }
-    //   this.books.push(book.toObject());
-    // }
   }
 
   gotoView(book: Book.AsObject) {
