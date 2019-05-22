@@ -66,4 +66,8 @@ export class SettingPage implements OnInit {
       }
     });
   }
+
+  back(){
+    this.router.navigateByUrl('/');
+  }
 }
