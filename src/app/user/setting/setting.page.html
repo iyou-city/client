@@ -1,9 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-buttons slot="start">
-      <ion-button>
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>账号信息</ion-title>
     <ion-buttons slot="end">
@@ -21,9 +19,9 @@
       <ion-card-title></ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-item (click)="select()" style="text-align:center;border-radius:50%">
+      <ion-item (click)="select()" text-center>
         <!-- <ion-label>头像:</ion-label> -->
-        <ion-img *ngIf="user.icon" [src]="user.icon" style="display:block;width:200px;height:200px;border-radius:50%">
+        <ion-img *ngIf="user.icon" [src]="user.icon" style="width:200px;height:200px;--border-radius:50%">
         </ion-img>
       </ion-item>
       <ion-item>

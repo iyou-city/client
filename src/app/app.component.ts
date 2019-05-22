@@ -24,12 +24,12 @@ export class AppComponent {
     // },
     {
       title: '通知',
-      url: '/home',
+      url: '/',
       icon: 'notifications'
     },
     {
       title: '帮助',
-      url: '/list',
+      url: '/',
       icon: 'help'
     }
   ];

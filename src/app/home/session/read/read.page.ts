@@ -46,7 +46,8 @@ export class ReadPage implements OnInit {
   }
 
   markAutoPlay() {
-    this.autoPlay = true;
+    this.autoPlay = true;    
+    this.slides.slideNext();
     this.slides.startAutoplay();
   }
 
