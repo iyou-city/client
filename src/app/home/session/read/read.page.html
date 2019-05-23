@@ -7,8 +7,8 @@
     </ion-buttons>
     <ion-title>{{book.title}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="markAutoPlay()">
-        <ion-toggle color="success" [checked]="autoPlay"></ion-toggle>
+      <ion-button (click)="play(true)">
+        <ion-toggle color="success" [checked]="isAutoPlay"></ion-toggle>
         自动播放
       </ion-button>
     </ion-buttons>

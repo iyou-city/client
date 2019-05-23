@@ -18,7 +18,7 @@ export class ReadPage implements OnInit {
   host = environment.webUrl;
   book: Book.AsObject;
   audios = utilService.audiosCache;
-  autoPlay = true;
+  isAutoPlay: boolean;
   showShare = false;
   slideOpts = {
     slidesPerView: 1,
@@ -45,10 +45,13 @@ export class ReadPage implements OnInit {
     this.slideChange(null);
   }
 
-  markAutoPlay() {
-    this.autoPlay = true;    
-    this.slides.slideNext();
-    this.slides.startAutoplay();
+  play(autoPlay: boolean) {
+    if (autoPlay) {
+      this.slides.startAutoplay();
+    } else {
+      this.slides.stopAutoplay();
+    }
+    this.isAutoPlay = autoPlay;
   }
 
   slideChange(event) {
@@ -78,8 +81,7 @@ export class ReadPage implements OnInit {
         duration: 3000
       });
       toast.present();
-      this.slides.stopAutoplay();
-      this.autoPlay = false;
+      this.play(false);
       setTimeout(() => {
         this.router.navigateByUrl('login');
       }, 1000);
@@ -87,8 +89,7 @@ export class ReadPage implements OnInit {
     }
     let fullPageName = book.title + "-" + page.name
     if (!this.audios.get(fullPageName)) {
-      this.slides.stopAutoplay();
-      this.autoPlay = false;
+      this.play(false);
       const toast = await this.toastController.create({
         message: '长按[录音]键，进行录音',
         color: 'success',
@@ -101,8 +102,7 @@ export class ReadPage implements OnInit {
   }
 
   onPress(page: Page.AsObject, book: Book.AsObject) {
-    this.slides.stopAutoplay();
-    this.autoPlay = false;
+    this.play(false);
     let fullPageName = book.title + "-" + page.name
     document.getElementById(fullPageName)['color'] = 'warning';
     let fileName = fullPageName + '.3gp';
@@ -125,7 +125,7 @@ export class ReadPage implements OnInit {
     this.audios.get(fullPageName).stopRecord();
     document.getElementById(fullPageName)['color'] = 'success';
     this.audios.get(fullPageName).play();
-    this.markAutoPlay();
+    this.play(true);
   }
 
   back() {
