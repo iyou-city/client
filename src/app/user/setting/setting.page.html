@@ -23,7 +23,7 @@
     <ion-card-content text-center>
       <!-- <ion-item (click)="select()" text-center> -->
       <!-- <ion-label>头像:</ion-label> -->
-      <div style="margin:0 auto" (click)="select()">
+      <div (click)="select()">
         <img *ngIf="user.icon" [src]="user.icon" style="margin:0 auto;width:150px;height:150px;border-radius:50%" />
       </div>
       <!-- </ion-item> -->
@@ -32,7 +32,7 @@
           <ion-icon name="body"></ion-icon>
         </ion-avatar>
         <div>
-          <ion-label>签名</ion-label>
+          <ion-text>签名</ion-text>
           <ion-input [(ngModel)]="user.signature"></ion-input>
         </div>
       </ion-item>
@@ -40,26 +40,26 @@
         <ion-avatar>
           <ion-icon name="person"></ion-icon>
         </ion-avatar>
-        <ion-label text-wrap>
+        <div>
           <ion-text>
-            名称
+            昵称
           </ion-text>
           <p>{{user.name}}</p>
           <!-- <ion-text>
             用于IYOU里显示，您的联系人将看到它
           </ion-text> -->
-        </ion-label>
+        </div>
       </ion-item>
       <ion-item>
         <ion-avatar>
           <ion-icon name="call"></ion-icon>
         </ion-avatar>
-        <ion-label text-wrap>
+        <div>
           <ion-text>
             电话
           </ion-text>
           <p>{{user.telephone}}</p>
-        </ion-label>
+        </div>
       </ion-item>
     </ion-card-content>
   </ion-card>
