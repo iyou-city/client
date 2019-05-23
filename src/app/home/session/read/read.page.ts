@@ -18,7 +18,7 @@ export class ReadPage implements OnInit {
   host = environment.webUrl;
   book: Book.AsObject;
   audios = utilService.audiosCache;
-  isAutoPlay: boolean;
+  isAutoPlay = true;
   showShare = false;
   slideOpts = {
     slidesPerView: 1,
