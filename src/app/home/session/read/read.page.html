@@ -8,7 +8,7 @@
     <ion-title>{{book.title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="play(true)">
-        <ion-toggle color="success" [checked]="isAutoPlay"></ion-toggle>
+        <ion-toggle color="success" [(ngModel)]="isAutoPlay" (ionChange)="play(isAutoPlay)"></ion-toggle>
         自动播放
       </ion-button>
     </ion-buttons>
