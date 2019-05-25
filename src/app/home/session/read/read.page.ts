@@ -70,7 +70,8 @@ export class ReadPage implements OnInit {
   }
 
   playOringial(page: Page.AsObject) {
-    new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
+    // new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
+    new Audio('https://sp0.baidu.com/-rM1hT4a2gU2pMbgoY3K/gettts?lan=en&text=' + page.name + '&spd=2&source=alading').play();
   }
 
   async playYours(page: Page.AsObject, book: Book.AsObject) {

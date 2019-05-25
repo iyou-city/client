@@ -32,7 +32,7 @@
           <ion-icon name="body"></ion-icon>
         </ion-avatar>
         <div>
-          <ion-text>签名</ion-text>
+          <ion-label>签名</ion-label>
           <ion-input [(ngModel)]="user.signature"></ion-input>
         </div>
       </ion-item>
@@ -41,9 +41,9 @@
           <ion-icon name="person"></ion-icon>
         </ion-avatar>
         <div>
-          <ion-text>
+          <ion-label>
             昵称
-          </ion-text>
+          </ion-label>
           <p>{{user.name}}</p>
           <!-- <ion-text>
             用于IYOU里显示，您的联系人将看到它
@@ -55,9 +55,9 @@
           <ion-icon name="call"></ion-icon>
         </ion-avatar>
         <div>
-          <ion-text>
+          <ion-label>
             电话
-          </ion-text>
+          </ion-label>
           <p>{{user.telephone}}</p>
         </div>
       </ion-item>
