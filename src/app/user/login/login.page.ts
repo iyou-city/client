@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
     apiService.userClient.login(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         console.log(err.code, err.message);
-        alert('手机号或密码不正确.');
+        utilService.alert('手机号或密码不正确.');
       } else {
         utilService.setUser(response.toObject());
         this.events.publish('user:login', response.getName());

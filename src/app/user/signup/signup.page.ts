@@ -2,7 +2,7 @@ import * as grpcWeb from 'grpc-web';
 import { Router } from '@angular/router';
 import { User } from '../../../sdk/user_pb';
 import { Component, OnInit } from '@angular/core';
-import { apiService } from '../../service/api.service';
+import { apiService, utilService } from '../../service/api.service';
 
 @Component({
   selector: 'app-signup',
@@ -23,7 +23,7 @@ export class SignupPage implements OnInit {
 
   signup() {
     if (!this.user.telephone) {
-      alert('请输入电话！');
+      utilService.alert('请输入电话！');
       return
     }
     const tsUser = new User();
@@ -32,7 +32,7 @@ export class SignupPage implements OnInit {
     tsUser.setPassword(this.user.password);
     apiService.userClient.add(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
-        alert(err.message);
+        utilService.alert(err.message);
       } else {
         this.router.navigateByUrl('/login');
       }

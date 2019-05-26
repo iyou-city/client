@@ -38,7 +38,7 @@ export class GroupPage implements OnInit {
     }
     apiService.groupClient.add(tsGroup, apiService.metaData, (err: grpcWeb.Error, response: Group) => {
       if (err) {
-        alert(JSON.stringify(err));
+        utilService.alert(JSON.stringify(err));
       }
       this.router.navigateByUrl('contact');
     });
