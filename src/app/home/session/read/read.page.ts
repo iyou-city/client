@@ -120,9 +120,10 @@ export class ReadPage implements OnInit {
     if (this.audios.get(fullPageName)) {
       this.audios.get(fullPageName).release();
     }
-    this.audios.set(fullPageName, this.media.create(filePath));
-    this.audios.get(fullPageName).onSuccess.subscribe(() => {
+    let file = this.media.create(filePath);
+    file.onSuccess.subscribe(() => {
       document.getElementById(fullPageName)['color'] = 'warning';
+      this.audios.set(fullPageName, file);
       this.audios.get(fullPageName).startRecord();
     });
   }
