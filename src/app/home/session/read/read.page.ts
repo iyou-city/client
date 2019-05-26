@@ -122,10 +122,10 @@ export class ReadPage implements OnInit {
     }
     let file = this.media.create(filePath)
     file.onSuccess.subscribe(() => {
-      this.audios.set(fullPageName, file);
-      this.audios.get(fullPageName).startRecord();
       document.getElementById(fullPageName)['color'] = 'warning';
     });
+    this.audios.set(fullPageName, file);
+    this.audios.get(fullPageName).startRecord();
   }
 
   onPressUp(page: Page.AsObject, book: Book.AsObject) {
