@@ -61,6 +61,10 @@ export class ReadPage implements OnInit {
     });
   }
 
+  slideTouch(event) {
+    this.isAutoPlay = false;
+  }
+
   playSound(page: Page.AsObject, book: Book.AsObject) {
     if (utilService.isOriginal) {
       this.playOringial(page);

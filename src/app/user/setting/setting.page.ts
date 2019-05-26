@@ -57,8 +57,6 @@ export class SettingPage implements OnInit {
         alert(JSON.stringify(err));
         //utilService.alert(JSON.stringify(err));
       } else {
-        //alert(JSON.stringify(this.article));
-        //this.modalController.dismiss();
         // refresh local storage
         utilService.setUser(this.user);
         this.events.publish('user:login', response.getName());
