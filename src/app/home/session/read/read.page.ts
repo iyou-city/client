@@ -109,7 +109,6 @@ export class ReadPage implements OnInit {
   onPress(page: Page.AsObject, book: Book.AsObject) {
     this.play(false);
     let fullPageName = book.title + "-" + page.name
-    document.getElementById(fullPageName)['color'] = 'warning';
     let fileName = fullPageName + '.3gp';
     let filePath = '';
     if (this.platform.is('ios')) {
@@ -122,7 +121,10 @@ export class ReadPage implements OnInit {
       this.audios.get(fullPageName).release();
     }
     this.audios.set(fullPageName, this.media.create(filePath));
-    this.audios.get(fullPageName).startRecord();
+    this.audios.get(fullPageName).onSuccess.subscribe(() => {
+      document.getElementById(fullPageName)['color'] = 'warning';
+      this.audios.get(fullPageName).startRecord();
+    });
   }
 
   onPressUp(page: Page.AsObject, book: Book.AsObject) {
