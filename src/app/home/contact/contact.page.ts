@@ -31,7 +31,7 @@ export class ContactPage implements OnInit {
       this.groups.push(response.toObject());
     });
     stream.on('error', err => {
-      alert(JSON.stringify(err));
+      utilService.alert(JSON.stringify(err));
       this.loadGroups();
     });
   }
@@ -44,7 +44,7 @@ export class ContactPage implements OnInit {
       this.users.push(user);
     });
     stream.on('error', err => {
-      alert(JSON.stringify(err));
+      utilService.alert(JSON.stringify(err));
       this.loadUsers();
     });
   }

@@ -155,7 +155,7 @@ export class ReadPage implements OnInit {
     }).then(() => {
       console.log("Success");
     }).catch(err => {
-      alert(JSON.stringify(err));
+      utilService.alert(JSON.stringify(err));
     });
   }
 }

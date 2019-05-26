@@ -31,12 +31,10 @@ export class ViewPage implements OnInit {
     private router: Router,
     private platform: Platform) { }
 
-  ngOnInit() {
-    this.book = utilService.book;
-  }
+  ngOnInit() { }
 
-  ionViewDidEnter() {
-    // this.playSound(this.book.pageList[0]);
+  ionViewWillEnter() {
+    this.book = utilService.book;
   }
 
   slideChange(event) {

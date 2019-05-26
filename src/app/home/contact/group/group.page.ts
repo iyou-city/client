@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { User } from '../../../../sdk/user_pb';
 import { Group } from '../../../../sdk/group_pb';
 import { Component, OnInit } from '@angular/core';
-import { apiService } from '../../../service/api.service';
+import { apiService, utilService } from '../../../service/api.service';
 
 @Component({
   selector: 'app-group',
@@ -23,7 +23,7 @@ export class GroupPage implements OnInit {
       this.users.push(user);
     });
     stream.on('error', err => {
-      alert(JSON.stringify(err));
+      utilService.alert(JSON.stringify(err));
     });
   }
 

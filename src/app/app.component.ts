@@ -44,7 +44,7 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.listenForLoginEvents();
-
+    utilService.injector = this.injector;
     // if (!utilService.getUser()) {
     //   this.router.navigateByUrl('/login');
     // }

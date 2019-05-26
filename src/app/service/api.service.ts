@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 import { User } from '../../sdk/user_pb';
 import { Book } from '../../sdk/book_pb';
 import { Message } from '../../sdk/message_pb';
@@ -27,6 +28,7 @@ export class ApiService {
 }
 
 export class UtilService {
+  injector: Injector;
   userId = '';
   msgCache = new Map<string, Message.AsObject[]>();
   audiosCache = new Map<string, MediaObject>();
@@ -46,6 +48,15 @@ export class UtilService {
 
   setUser(user: User.AsObject) {
     window.localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  async alert(msg: string, title: string = '提示') {
+    const alert = await this.injector.get(AlertController).create({
+      header: title,
+      message: msg,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
 
