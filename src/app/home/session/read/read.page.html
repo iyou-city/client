@@ -7,9 +7,9 @@
     </ion-buttons>
     <ion-title>{{book.title}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="play(true)">
+      <ion-button (click)="play(!isAutoPlay)">
         <ion-toggle color="success" [(ngModel)]="isAutoPlay" (ionChange)="play(isAutoPlay)"></ion-toggle>
-        自动播放
+        自动/手动
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
