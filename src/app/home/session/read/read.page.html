@@ -8,7 +8,7 @@
     <ion-title>{{book.title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="play(!isAutoPlay)">
-        <ion-icon slot="icon-only" [name]="isAutoPlay?'swap':'pause'"></ion-icon>
+        <ion-icon slot="icon-only" [name]="isAutoPlay?'link':'pause'"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -25,7 +25,7 @@
         </ion-row>
         <ion-row align-items-center>
           <ion-col>
-            <ion-card (swipe)="slideSwipe($event)">
+            <ion-card (swipe)="slideSwipe($event)" (swipeleft)="slideSwipe($event)" (swiperight)="slideSwipe($event)">
               <img src="{{host}}/uploads/{{page.picture.url}}" />
             </ion-card>
           </ion-col>
