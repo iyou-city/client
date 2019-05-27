@@ -39,6 +39,10 @@ export class ReadPage implements OnInit {
 
   ngOnInit() {
     this.book = utilService.book;
+    // grant media-record privilege
+    this.onPress(this.book.pageList[0], this.book);
+    this.onPressUp(this.book.pageList[0], this.book);
+    // end
   }
 
   ionViewDidEnter() {
@@ -120,11 +124,7 @@ export class ReadPage implements OnInit {
     if (this.audios.get(fullPageName)) {
       this.audios.get(fullPageName).release();
     }
-    let file = this.media.create(filePath)
-    file.onError.subscribe(() => {
-      document.getElementById(fullPageName)['color'] = 'success';
-    });
-    this.audios.set(fullPageName, file);
+    this.audios.set(fullPageName, this.media.create(filePath));
     this.audios.get(fullPageName).startRecord();
     document.getElementById(fullPageName)['color'] = 'warning';
   }
