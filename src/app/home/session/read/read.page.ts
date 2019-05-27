@@ -65,7 +65,7 @@ export class ReadPage implements OnInit {
     });
   }
 
-  async slideTouch(event) {
+  slideTouch(event) {
     this.play(true);
     // this.isAutoPlay = false;
     // const toast = await this.toastController.create({

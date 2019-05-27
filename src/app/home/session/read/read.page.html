@@ -9,7 +9,7 @@
     <ion-buttons slot="end">
       <ion-button (click)="play(!isAutoPlay)">
         <ion-toggle color="success" [(ngModel)]="isAutoPlay" (ionChange)="play(isAutoPlay)"></ion-toggle>
-        自动/手动
+        自动|手动
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -17,7 +17,7 @@
 
 <ion-content>
   <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)" style="height:80%"
-    (ionSlideTouchStart)="slideTouch($event)">
+    (ionSlideTouchEnd)="slideTouch($event)">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <ion-grid>
         <ion-row align-items-center>
