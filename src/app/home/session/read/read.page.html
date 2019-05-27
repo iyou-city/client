@@ -8,8 +8,7 @@
     <ion-title>{{book.title}}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="play(!isAutoPlay)">
-        <ion-toggle color="success" [(ngModel)]="isAutoPlay" (ionChange)="play(isAutoPlay)"></ion-toggle>
-        自动|手动
+        <ion-icon slot="icon-only" [name]="isAutoPlay?'swap':'pause'"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -74,7 +73,7 @@
   </ion-slides>
   <ion-fab *ngIf="showShare" vertical="bottom" horizontal="center">
     <ion-fab-button color="success" (click)="shareToWechat()">
-      <ion-icon name="logo-vimeo"></ion-icon>
+      <ion-icon name="share-alt"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

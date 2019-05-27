@@ -16,14 +16,6 @@ export class ViewPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
   host = environment.webUrl;
   book: Book.AsObject;
-  slideOpts = {
-    slidesPerView: 1,
-    effect: 'flip',
-    autoplay: {
-      delay: 2000,
-      stopOnLastSlide: true,
-    }
-  };
 
   constructor(
     private file: File,
@@ -35,41 +27,6 @@ export class ViewPage implements OnInit {
 
   ionViewWillEnter() {
     this.book = utilService.book;
-  }
-
-  slideChange(event) {
-    this.slides.getActiveIndex().then(e => {
-      this.playSound(this.book.pageList[e]);
-    });
-  }
-
-  playSound(page: Page.AsObject) {
-    if (!this.audio) {
-      new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
-    } else {
-      //new Audio('assets/audio/1001.mp3').play();
-      this.audio.play();
-    }
-  }
-
-  audio: MediaObject;
-  recordSound() {
-    if (!this.audio) {
-      // this.audio = this.media.create('assets/audio/1001.mp3');      
-      if (this.platform.is('ios')) {
-        let fileName = 'record' + new Date().toDateString() + '.3gp';
-        let filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
-        this.audio = this.media.create(filePath);
-      } else if (this.platform.is('android')) {
-        let fileName = 'record' + new Date().toDateString() + '.3gp';
-        let filePath = this.file.externalDataDirectory.replace(/file:\/\//g, '') + fileName;
-        this.audio = this.media.create(filePath);
-      }
-
-      this.audio.startRecord();
-    } else {
-      this.audio.stopRecord();
-    }
   }
 
   originalRead() {
