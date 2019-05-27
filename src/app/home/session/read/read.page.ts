@@ -58,6 +58,7 @@ export class ReadPage implements OnInit {
     this.slides.getActiveIndex().then(e => {
       this.playSound(this.book.pageList[e], this.book);
       this.showShare = (e == this.book.pageList.length - 1);
+      this.play(true);
     });
   }
 
