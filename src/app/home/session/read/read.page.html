@@ -16,7 +16,7 @@
 
 <ion-content>
   <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)" style="height:80%"
-    (ionSlideTouchEnd)="slideTouch($event)">
+    (swipe)="slideSwipe($event)">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <ion-grid>
         <ion-row align-items-center>

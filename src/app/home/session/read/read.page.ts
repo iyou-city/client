@@ -61,15 +61,8 @@ export class ReadPage implements OnInit {
     });
   }
 
-  slideTouch(event) {
+  slideSwipe(event) {
     this.play(true);
-    // this.isAutoPlay = false;
-    // const toast = await this.toastController.create({
-    //   message: '进入手工滑动模式，',
-    //   color: 'success',
-    //   duration: 2000
-    // });
-    // toast.present();
   }
 
   playSound(page: Page.AsObject, book: Book.AsObject) {
