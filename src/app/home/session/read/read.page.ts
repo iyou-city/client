@@ -39,10 +39,6 @@ export class ReadPage implements OnInit {
 
   ngOnInit() {
     this.book = utilService.book;
-    // grant media-record privilege
-    // this.onPress(this.book.pageList[0], this.book);
-    this.onPressUp(this.book.pageList[0], this.book);
-    // end
   }
 
   ionViewDidEnter() {
@@ -120,8 +116,8 @@ export class ReadPage implements OnInit {
   onPress(page: Page.AsObject, book: Book.AsObject) {
     this.play(false);
     let fullPageName = book.title + "-" + page.name
-    let fileName = fullPageName + '.3gp';
-    let filePath = '';
+    let fileName = fullPageName + '.mp3';
+    let filePath = fileName;
     if (this.platform.is('ios')) {
       filePath = this.file.documentsDirectory.replace(/file:\/\//g, '') + fileName;
     } else if (this.platform.is('android')) {
