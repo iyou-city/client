@@ -25,7 +25,7 @@
         </ion-row>
         <ion-row align-items-center>
           <ion-col>
-            <ion-card (touchmove)="play(true)">
+            <ion-card (touchmove)="handleMove($event)">
               <img src="{{host}}/uploads/{{page.picture.url}}" />
             </ion-card>
           </ion-col>
