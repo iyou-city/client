@@ -25,7 +25,7 @@
         </ion-row>
         <ion-row align-items-center>
           <ion-col>
-            <ion-card (touchend)="play(true)">
+            <ion-card (touchmove)="play(true)">
               <img src="{{host}}/uploads/{{page.picture.url}}" />
             </ion-card>
           </ion-col>
