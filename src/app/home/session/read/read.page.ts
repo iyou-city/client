@@ -59,6 +59,7 @@ export class ReadPage implements OnInit {
       this.playSound(this.book.pageList[e], this.book);
       this.showShare = (e == this.book.pageList.length - 1);
     });
+    this.play(true);
   }
 
   playSound(page: Page.AsObject, book: Book.AsObject) {
