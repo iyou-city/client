@@ -19,11 +19,16 @@ export class SettingPage implements OnInit {
     private events: Events,
     private camera: Camera) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ionViewWillEnter() {
     if (!utilService.getUser()) {
       this.router.navigateByUrl('login');
+      return
     }
+    this.user = utilService.getUser();
   }
+
 
   select() {
     const options: CameraOptions = {
@@ -31,6 +36,8 @@ export class SettingPage implements OnInit {
       correctOrientation: true,
       sourceType: 2,
       allowEdit: true,
+      targetWidth: 150,
+      targetHeight: 150,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -45,7 +52,7 @@ export class SettingPage implements OnInit {
 
   upload() {
     if (!utilService.getUser()) {
-      alert('请登录');
+      utilService.alert('请登录');
       return
     }
     let tsUser = new User();
@@ -54,7 +61,7 @@ export class SettingPage implements OnInit {
     tsUser.setSignature(this.user.signature);
     apiService.userClient.update(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
-        alert(JSON.stringify(err));
+        utilService.alert(JSON.stringify(err));
         //utilService.alert(JSON.stringify(err));
       } else {
         // refresh local storage
@@ -65,7 +72,7 @@ export class SettingPage implements OnInit {
     });
   }
 
-  back(){
+  back() {
     this.router.navigateByUrl('/');
   }
 }
