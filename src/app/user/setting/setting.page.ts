@@ -32,7 +32,7 @@ export class SettingPage implements OnInit {
 
   select() {
     const options: CameraOptions = {
-      quality: 60,
+      quality: 80,
       correctOrientation: true,
       sourceType: 2,
       allowEdit: true,

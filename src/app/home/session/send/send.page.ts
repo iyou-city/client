@@ -37,7 +37,7 @@ export class SendPage implements OnInit {
     tsMessage.setCreated(tt);
     apiService.messageClient.send(tsMessage, apiService.metaData, (err: grpcWeb.Error, e: any) => {
       if (err) {
-        alert(err.code + ':' + err.message);
+        utilService.alert(err.code + ':' + err.message);
       }
     });
     this.messages.push(tsMessage.toObject());
