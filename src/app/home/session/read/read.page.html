@@ -15,7 +15,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)" style="height:80%">
+  <ion-slides #slider [options]="slideOpts" (ionSlideDidChange)="slideChange($event)" (ionSlideTouchEnd)="play(true)"
+    style="height:80%">
     <ion-slide *ngFor="let page of book.pageList;index as i">
       <ion-grid>
         <ion-row align-items-center>
@@ -25,7 +26,7 @@
         </ion-row>
         <ion-row align-items-center>
           <ion-col>
-            <ion-card (touchmove)="handleMove($event)">
+            <ion-card>
               <img src="{{host}}/uploads/{{page.picture.url}}" />
             </ion-card>
           </ion-col>

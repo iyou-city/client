@@ -54,11 +54,6 @@ export class ReadPage implements OnInit {
     this.isAutoPlay = autoPlay;
   }
 
-  handleMove(evt) {
-    evt.preventDefault();
-    this.play(true);
-  }
-
   slideChange(event) {
     this.slides.getActiveIndex().then(e => {
       this.playSound(this.book.pageList[e], this.book);
