@@ -252,6 +252,22 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-media.MediaError",
+    "file": "plugins/cordova-plugin-media/www/MediaError.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.MediaError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-media.Media",
+    "file": "plugins/cordova-plugin-media/www/Media.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.Media"
+    ]
+  },
+  {
     "id": "cordova-plugin-media-capture.CaptureAudioOptions",
     "file": "plugins/cordova-plugin-media-capture/www/CaptureAudioOptions.js",
     "pluginId": "cordova-plugin-media-capture",
@@ -336,22 +352,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-media.MediaError",
-    "file": "plugins/cordova-plugin-media/www/MediaError.js",
-    "pluginId": "cordova-plugin-media",
-    "clobbers": [
-      "window.MediaError"
-    ]
-  },
-  {
-    "id": "cordova-plugin-media.Media",
-    "file": "plugins/cordova-plugin-media/www/Media.js",
-    "pluginId": "cordova-plugin-media",
-    "clobbers": [
-      "window.Media"
-    ]
-  },
-  {
     "id": "cordova-plugin-wechat.Wechat",
     "file": "plugins/cordova-plugin-wechat/www/wechat.js",
     "pluginId": "cordova-plugin-wechat",
@@ -370,12 +370,12 @@ module.exports.metadata =
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-ionic-keyboard": "2.1.3",
   "cordova-plugin-ionic-webview": "3.1.2",
+  "cordova-plugin-media": "5.0.2",
   "cordova-plugin-media-capture": "3.0.2",
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-statusbar": "2.4.2",
-  "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-media": "5.0.2",
-  "cordova-plugin-wechat": "2.8.0"
+  "cordova-plugin-wechat": "2.8.0",
+  "cordova-plugin-whitelist": "1.3.3"
 };
 // BOTTOM OF METADATA
 });
