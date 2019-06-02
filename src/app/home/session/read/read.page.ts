@@ -39,6 +39,9 @@ export class ReadPage implements OnInit {
 
   ngOnInit() {
     this.book = utilService.book;
+    // workaround
+    this.onPress(this.book.pageList[0], this.book);
+    this.onPressUp(this.book.pageList[0], this.book);
   }
 
   ionViewDidEnter() {
