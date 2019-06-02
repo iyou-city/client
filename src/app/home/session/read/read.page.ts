@@ -135,6 +135,8 @@ export class ReadPage implements OnInit {
     let fullPageName = book.title + "-" + page.name
     this.audios.get(fullPageName).stopRecord();
     document.getElementById(fullPageName)['color'] = 'success';
+    // max sound
+    this.audios.get(fullPageName).setVolume(1);
     this.audios.get(fullPageName).play();
     this.play(true);
   }
