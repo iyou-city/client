@@ -40,9 +40,9 @@ export class ReadPage implements OnInit {
   ngOnInit() {
     this.book = utilService.book;
     // workaround
-    let media = this.media.create('.');
-    media.startRecord();
-    media.stopRecord();
+    //let media = this.media.create('.');
+    //media.startRecord();
+    //media.stopRecord();
   }
 
   ionViewDidEnter() {
