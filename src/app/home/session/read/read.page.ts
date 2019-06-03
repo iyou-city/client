@@ -40,8 +40,10 @@ export class ReadPage implements OnInit {
   ngOnInit() {
     this.book = utilService.book;
     // workaround: grant privilege
-    this.onPress((new Page()).toObject(), this.book);
-    this.onPressUp((new Page()).toObject(), this.book);
+    let testPage = new Page();
+    testPage.setName('test');
+    this.onPress(testPage.toObject(), this.book);
+    this.onPressUp(testPage.toObject(), this.book);
   }
 
   ionViewDidEnter() {
