@@ -24,14 +24,19 @@ export class SessionPage implements OnInit {
 
   constructor(private router: Router) { }
 
+  tryCount = 0;
+
   ngOnInit() {
     let stream = apiService.bookClient.list((new Book), apiService.metaData);
     stream.on('data', response => {
       this.books.push(response.toObject());
     });
     stream.on('error', err => {
-      alert(JSON.stringify(err));
-      //this.loadGroups();
+      //alert(JSON.stringify(err));
+      if (this.tryCount <= 3) {
+        this.ngOnInit();
+      }
+      this.tryCount++;
     });
   }
 
