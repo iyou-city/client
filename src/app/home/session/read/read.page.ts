@@ -40,9 +40,8 @@ export class ReadPage implements OnInit {
   ngOnInit() {
     this.book = utilService.book;
     // workaround: grant privilege
-    let media = this.media.create(this.file.externalDataDirectory.replace(/file:\/\//g, '') + 'test.mp3');
-    media.startRecord();
-    media.stopRecord();
+    this.onPress((new Page()).toObject(), this.book);
+    this.onPressUp((new Page()).toObject(), this.book);
   }
 
   ionViewDidEnter() {
