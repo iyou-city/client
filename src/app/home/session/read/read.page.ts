@@ -15,7 +15,7 @@ import { apiService, utilService } from '../../../service/api.service';
 })
 export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
-  host = environment.webUrl;
+  host = environment.apiUrl;
   book: Book.AsObject;
   audios = utilService.audiosCache;
   isAutoPlay = true;
@@ -157,7 +157,7 @@ export class ReadPage implements OnInit {
         messageAction: "<action>dotalist</action>",
         media: {
           type: 7,// this.wechat.Type.WEBPAGE,
-          webpageUrl: environment.webUrl + '/download'//"http://www.bing.com"
+          webpageUrl: environment.apiUrl + '/download'//"http://www.bing.com"
         }
       },
       scene: 1,//this.wechat.Scene.TIMELINE   // share to Timeline

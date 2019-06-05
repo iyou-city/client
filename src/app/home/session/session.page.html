@@ -26,7 +26,7 @@
       <!-- <div *ngFor="let book of books" style="background:url(http://127.0.0.1:8081/abc/cover.jpg);background-size:100% 100%;
     width: 200px;height: 200px;">{{book.title}}</div> -->
       <ion-card text-center (click)="gotoView(book)">
-        <img src="{{host}}/uploads/{{book.cover.url}}" style="height:150px;object-fit: cover" />
+        <img src="{{host}}/static/{{book.cover.url}}" style="height:150px;object-fit: cover" />
         <p style="margin:8px auto;">{{book.title}}</p>
         <!-- <ion-avatar slot="start">
         <img src="{{book.cover}}">

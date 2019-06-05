@@ -14,7 +14,7 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./session.page.scss'],
 })
 export class SessionPage implements OnInit {
-  host = environment.webUrl;
+  host = environment.apiUrl;
   books: Book.AsObject[] = [];
   levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   sliderConfig = {

@@ -14,7 +14,7 @@ import { apiService, utilService } from '../../../service/api.service';
 })
 export class ViewPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
-  host = environment.webUrl;
+  host = environment.apiUrl;
   book: Book.AsObject;
 
   constructor(
