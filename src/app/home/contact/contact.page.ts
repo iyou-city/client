@@ -32,7 +32,7 @@ export class ContactPage implements OnInit {
     });
     stream.on('error', err => {
       utilService.alert(JSON.stringify(err));
-      this.loadGroups();
+      // this.loadGroups();
     });
   }
 
@@ -45,7 +45,7 @@ export class ContactPage implements OnInit {
     });
     stream.on('error', err => {
       utilService.alert(JSON.stringify(err));
-      this.loadUsers();
+      // this.loadUsers();
     });
   }
 
@@ -85,7 +85,7 @@ export class ContactPage implements OnInit {
       this.subscribeTopic(group);
     });
     stream.on('error', err => {
-      console.log(err);
+      utilService.alert(JSON.stringify(err));
       this.groupsMessages();
     });
   }
@@ -103,9 +103,8 @@ export class ContactPage implements OnInit {
       this.msgCache.get(topic.groupid).push(topic.message)
     });
     stream.on('error', err => {
-      console.log(err);
-      this.subscribeTopic(group);
+      utilService.alert(JSON.stringify(err));
+      //this.subscribeTopic(group);
     });
   }
-
 }
