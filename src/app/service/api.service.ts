@@ -29,7 +29,8 @@ export class ApiService {
 
 export class UtilService {
   injector: Injector;
-  userId = '';
+  // peer userId or groupId
+  peerId = '';
   msgCache = new Map<string, Message.AsObject[]>();
   audiosCache = new Map<string, MediaObject>();
   book = (new Book).toObject();

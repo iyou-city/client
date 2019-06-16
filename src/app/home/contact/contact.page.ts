@@ -49,12 +49,12 @@ export class ContactPage implements OnInit {
     });
   }
 
-  gotoSend(userId: string) {
-    utilService.userId = userId;
+  gotoSend(peerId: string) {
+    utilService.peerId = peerId;
     this.router.navigateByUrl('send');
   }
 
-  gotoGroup() {
+  addGroup() {
     this.router.navigateByUrl('group');
   }
 

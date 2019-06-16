@@ -13,41 +13,42 @@ import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
 export class SendPage implements OnInit {
   messages: Message.AsObject[];
   message = (new Message).toObject();
-  peerUserId: string;
+  peerId: string;
 
   constructor(private events: Events) { }
 
   ngOnInit() { }
 
   ionViewWillEnter() {
-    this.peerUserId = utilService.userId;
-    if (utilService.msgCache.get(this.peerUserId) == null) {
-      utilService.msgCache.set(this.peerUserId, []);
+    this.peerId = utilService.peerId;
+    if (utilService.msgCache.get(this.peerId) == null) {
+      utilService.msgCache.set(this.peerId, []);
     }
-    this.messages = utilService.msgCache.get(this.peerUserId);
+    this.messages = utilService.msgCache.get(this.peerId);
   }
 
   send() {
     let tsMessage = new Message();
     tsMessage.setContent(this.message.content);
     tsMessage.setFrom(utilService.getUser().id);
-    tsMessage.setTo(this.peerUserId);
+    tsMessage.setTo(this.peerId);
     let tt = new Timestamp();
     tt.fromDate(new Date())
     tsMessage.setCreated(tt);
+
     // e.g.139/153/159***
-    if (this.peerUserId.startsWith('1')) {
+    if (this.peerId.startsWith('1')) {
       apiService.messageClient.send(tsMessage, apiService.metaData, (err: grpcWeb.Error, e: any) => {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
         }
       });
     }
-    
+
     // groupId start with 2
-    if (this.peerUserId.startsWith('2')) {
+    if (this.peerId.startsWith('2')) {
       let topic = new Topic();
-      topic.setGroupid(this.peerUserId);
+      topic.setGroupid(this.peerId);
       topic.setMessage(tsMessage);
       apiService.messageClient.publish(topic, apiService.metaData, (err: grpcWeb.Error, e: any) => {
         if (err) {

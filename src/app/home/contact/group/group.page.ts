@@ -2,6 +2,7 @@ import * as grpcWeb from 'grpc-web';
 import { Router } from '@angular/router';
 import { User } from '../../../../sdk/user_pb';
 import { Group } from '../../../../sdk/group_pb';
+import { AlertController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 import { apiService, utilService } from '../../../service/api.service';
 
@@ -11,9 +12,11 @@ import { apiService, utilService } from '../../../service/api.service';
   styleUrls: ['./group.page.scss'],
 })
 export class GroupPage implements OnInit {
-  users: User.AsObject[] = []
+  users: User.AsObject[] = [];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private alertController: AlertController) { }
 
   ngOnInit() {
     let stream = apiService.userClient.list((new User), apiService.metaData);
@@ -27,9 +30,45 @@ export class GroupPage implements OnInit {
     });
   }
 
-  add() {
+  async addPrompt() {
+    const alert = await this.alertController.create({
+      message: '输入群名称',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          value: '',
+          placeholder: '群名'
+        }
+      ],
+      buttons: [
+        {
+          text: '取消',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: '确定',
+          handler: (data) => {
+            this.addGroup(data.name1);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  addGroup(groupName: string) {
+    if (!groupName) {
+      utilService.alert('请输入群名称!');
+      return;
+    }
+
     let tsGroup = new Group();
-    tsGroup.setName('群-' + Math.floor(Math.random() * 10) + '-' + utilService.getUser().name);
+    tsGroup.setName(groupName);
     for (let j = 0; j < this.users.length; j++) {
       let user = this.users[j];
       if (user['isChecked']) {
