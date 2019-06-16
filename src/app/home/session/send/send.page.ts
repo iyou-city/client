@@ -42,6 +42,7 @@ export class SendPage implements OnInit {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
         }
+        console.log('send', tsMessage, 'done');
       });
     }
 
@@ -54,6 +55,7 @@ export class SendPage implements OnInit {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
         }
+        console.log('publish', tsMessage, 'done');
       });
     }
 
