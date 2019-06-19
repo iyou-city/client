@@ -1,4 +1,4 @@
-#Wed Jun 19 20:39:39 CST 2019
+#Wed Jun 19 21:22:41 CST 2019
 base.0=/home/daniel/iyou.city/client/platforms/android/app/build/intermediates/transforms/dex/release/0
 path.0=classes.dex
 renamed.0=classes.dex

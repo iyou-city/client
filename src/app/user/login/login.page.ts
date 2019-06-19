@@ -41,6 +41,7 @@ export class LoginPage implements OnInit {
   }
 
   logout() {
-    //utilService.logout();
+    utilService.logout();
+    this.router.navigateByUrl('/login');
   }
 }

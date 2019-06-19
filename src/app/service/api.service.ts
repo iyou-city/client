@@ -51,6 +51,10 @@ export class UtilService {
     window.localStorage.setItem('user', JSON.stringify(user));
   }
 
+  logout() {
+    window.localStorage.removeItem('user');
+  }
+
   async alert(msg: string, title: string = '提示') {
     const alert = await this.injector.get(AlertController).create({
       header: title,
