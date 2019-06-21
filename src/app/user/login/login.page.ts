@@ -21,15 +21,15 @@ export class LoginPage implements OnInit {
 
   login() {
     const tsUser = new User();
-    tsUser.setTelephone(this.user.telephone);
-    tsUser.setPassword(this.user.password);
+    tsUser.telephone = this.user.telephone;
+    tsUser.password = this.user.password;
     apiService.userClient.login(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         console.log(err.code, err.message);
         utilService.alert('手机号或密码不正确.');
       } else {
-        utilService.setUser(response.toObject());
-        this.events.publish('user:login', response.getName());
+        utilService.setUser(response);
+        this.events.publish('user:login', response.name);
         this.router.navigateByUrl('/home');
       }
       console.log(response);

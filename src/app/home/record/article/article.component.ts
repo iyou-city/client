@@ -27,8 +27,8 @@ export class ArticleComponent implements OnInit {
 
   add() {
     // let tsArticle = new Article();
-    this.tsArticle.setContent(this.article.content);
-    this.tsArticle.setImagesList(this.article.imagesList);
+    this.tsArticle.content=this.article.content;
+    this.tsArticle.imagesList=this.article.imagesList;
     apiService.articleClient.add(this.tsArticle, apiService.metaData, (err: grpcWeb.Error, response: Article) => {
       if (err) {
         alert(JSON.stringify(err));

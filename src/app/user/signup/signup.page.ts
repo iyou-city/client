@@ -27,9 +27,9 @@ export class SignupPage implements OnInit {
       return
     }
     const tsUser = new User();
-    tsUser.setName(this.user.name);
-    tsUser.setTelephone(this.user.telephone);
-    tsUser.setPassword(this.user.password);
+    tsUser.name = this.user.name;
+    tsUser.telephone = this.user.telephone;
+    tsUser.password = this.user.password;
     apiService.userClient.add(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         utilService.alert(err.message);

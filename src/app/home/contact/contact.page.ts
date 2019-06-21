@@ -58,10 +58,10 @@ export class ContactPage implements OnInit {
 
   peersMessages() {
     let tsUser = new User();
-    tsUser.setId(utilService.getUser().id);
+    tsUser.id=utilService.getUser().id;
     let stream = apiService.messageClient.receive(tsUser, apiService.metaData);
     stream.on('data', response => {
-      let msg = response.toObject();
+      let msg = response;
       console.log(msg);
       if (this.msgCache.get(msg.from) == null) {
         this.msgCache.set(msg.from, []);
@@ -88,15 +88,15 @@ export class ContactPage implements OnInit {
 
   subscribeTopic(group: Group.AsObject) {
     let tsTopIc = new Topic();
-    tsTopIc.setGroupid(group.id);
+    tsTopIc.groupId=group.id;
     let stream = apiService.messageClient.subscribe(tsTopIc, apiService.metaData);
     stream.on('data', response => {
-      let topic = response.toObject();
+      let topic = response;
       console.log(topic);
-      if (this.msgCache.get(topic.groupid) == null) {
-        this.msgCache.set(topic.groupid, []);
+      if (this.msgCache.get(topic.groupId) == null) {
+        this.msgCache.set(topic.groupId, []);
       }
-      this.msgCache.get(topic.groupid).push(topic.message)
+      this.msgCache.get(topic.groupId).push(topic.message)
     });
     stream.on('error', err => {
       utilService.alert(JSON.stringify(err));

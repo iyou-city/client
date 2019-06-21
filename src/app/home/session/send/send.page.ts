@@ -11,8 +11,8 @@ import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
   styleUrls: ['./send.page.scss'],
 })
 export class SendPage implements OnInit {
-  messages: Message.AsObject[];
-  message = (new Message).toObject();
+  messages: Message[];
+  message = new Message();
   peerId: string;
 
   constructor(private events: Events) { }
@@ -29,12 +29,12 @@ export class SendPage implements OnInit {
 
   send() {
     let tsMessage = new Message();
-    tsMessage.setContent(this.message.content);
-    tsMessage.setFrom(utilService.getUser().id);
-    tsMessage.setTo(this.peerId);
+    tsMessage.content = this.message.content;
+    tsMessage.from = utilService.getUser().id;
+    tsMessage.to = this.peerId;
     let tt = new Timestamp();
     tt.fromDate(new Date())
-    tsMessage.setCreated(tt);
+    tsMessage.created = tt;
 
     // e.g.139/153/159***
     if (this.peerId.startsWith('1')) {
@@ -49,8 +49,8 @@ export class SendPage implements OnInit {
     // groupId start with 2
     if (this.peerId.startsWith('2')) {
       let topic = new Topic();
-      topic.setGroupid(this.peerId);
-      topic.setMessage(tsMessage);
+      topic.groupId = this.peerId;
+      topic.message = tsMessage;
       apiService.messageClient.publish(topic, apiService.metaData, (err: grpcWeb.Error, e: any) => {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
@@ -59,7 +59,7 @@ export class SendPage implements OnInit {
       });
     }
 
-    this.messages.push(tsMessage.toObject());
+    this.messages.push(tsMessage);
     this.message.content = '';
   }
 }

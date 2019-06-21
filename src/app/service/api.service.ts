@@ -18,11 +18,11 @@ export class ApiService {
 
   constructor() { }
 
-  articleClient = new ArticlesClient(environment.apiUrl);
-  userClient = new UsersClient(environment.apiUrl);
-  groupClient = new GroupsClient(environment.apiUrl);
-  messageClient = new MessagesClient(environment.apiUrl);
-  bookClient = new BooksClient(environment.apiUrl);
+  articleClient = new ArticlesClient(environment.apiUrl,null,null);
+  userClient = new UsersClient(environment.apiUrl,null,null);
+  groupClient = new GroupsClient(environment.apiUrl,null,null);
+  messageClient = new MessagesClient(environment.apiUrl,null,null);
+  bookClient = new BooksClient(environment.apiUrl,null,null);
 
   metaData = { 'authorization-token': 'admin' };
 }
@@ -31,14 +31,14 @@ export class UtilService {
   injector: Injector;
   // peer userId or groupId
   peerId = '';
-  msgCache = new Map<string, Message.AsObject[]>();
+  msgCache = new Map<string, Message[]>();
   audiosCache = new Map<string, MediaObject>();
-  book = (new Book).toObject();
+  book = (new Book);
   isOriginal = true;
 
   constructor() { }
 
-  getUser(): User.AsObject {
+  getUser(): User {
     let localUser = window.localStorage.getItem('user');
     if (!localUser) {
       //window.alert('请登录!')
@@ -47,7 +47,7 @@ export class UtilService {
     return JSON.parse(localUser)
   }
 
-  setUser(user: User.AsObject) {
+  setUser(user: User) {
     window.localStorage.setItem('user', JSON.stringify(user));
   }
 

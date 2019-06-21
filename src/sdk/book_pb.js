@@ -316,6 +316,16 @@ proto.dawn.Book.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Book.prototype, "id", {
+  set: function(value) {
+    this.setId(value);
+  },
+  get: function() {
+    return this.getId();
+  },
+});
+
+
 /**
  * optional string id = 1;
  * @return {string}
@@ -331,12 +341,12 @@ proto.dawn.Book.prototype.setId = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "id", {
+Object.defineProperty(proto.dawn.Book.prototype, "title", {
   set: function(value) {
-    this.setId(value);
+    this.setTitle(value);
   },
   get: function() {
-    return this.getId();
+    return this.getTitle();
   },
 });
 
@@ -356,12 +366,12 @@ proto.dawn.Book.prototype.setTitle = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "title", {
+Object.defineProperty(proto.dawn.Book.prototype, "cover", {
   set: function(value) {
-    this.setTitle(value);
+    this.setCover(value);
   },
   get: function() {
-    return this.getTitle();
+    return this.getCover();
   },
 });
 
@@ -399,6 +409,16 @@ proto.dawn.Book.prototype.hasCover = function() {
 };
 
 
+Object.defineProperty(proto.dawn.Book.prototype, "pageList", {
+  set: function(value) {
+    this.setPageList(value);
+  },
+  get: function() {
+    return this.getPageList();
+  },
+});
+
+
 /**
  * repeated Page page = 4;
  * @return {!Array<!proto.dawn.Page>}
@@ -433,6 +453,16 @@ proto.dawn.Book.prototype.clearPageList = function() {
 };
 
 
+Object.defineProperty(proto.dawn.Book.prototype, "reader", {
+  set: function(value) {
+    this.setReader(value);
+  },
+  get: function() {
+    return this.getReader();
+  },
+});
+
+
 /**
  * optional string reader = 5;
  * @return {string}
@@ -448,12 +478,12 @@ proto.dawn.Book.prototype.setReader = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "reader", {
+Object.defineProperty(proto.dawn.Book.prototype, "amount", {
   set: function(value) {
-    this.setReader(value);
+    this.setAmount(value);
   },
   get: function() {
-    return this.getReader();
+    return this.getAmount();
   },
 });
 
@@ -473,12 +503,12 @@ proto.dawn.Book.prototype.setAmount = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "amount", {
+Object.defineProperty(proto.dawn.Book.prototype, "level", {
   set: function(value) {
-    this.setAmount(value);
+    this.setLevel(value);
   },
   get: function() {
-    return this.getAmount();
+    return this.getLevel();
   },
 });
 
@@ -498,12 +528,12 @@ proto.dawn.Book.prototype.setLevel = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "level", {
+Object.defineProperty(proto.dawn.Book.prototype, "category", {
   set: function(value) {
-    this.setLevel(value);
+    this.setCategory(value);
   },
   get: function() {
-    return this.getLevel();
+    return this.getCategory();
   },
 });
 
@@ -523,12 +553,12 @@ proto.dawn.Book.prototype.setCategory = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Book.prototype, "category", {
+Object.defineProperty(proto.dawn.Book.prototype, "labelsMap", {
   set: function(value) {
-    this.setCategory(value);
+    this.setLabelsMap(value);
   },
   get: function() {
-    return this.getCategory();
+    return this.getLabelsMap();
   },
 });
 
@@ -552,6 +582,16 @@ proto.dawn.Book.prototype.getLabelsMap = function(opt_noLazyCreate) {
 proto.dawn.Book.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
 };
+
+
+Object.defineProperty(proto.dawn.Book.prototype, "created", {
+  set: function(value) {
+    this.setCreated(value);
+  },
+  get: function() {
+    return this.getCreated();
+  },
+});
 
 
 /**
@@ -727,6 +767,16 @@ proto.dawn.Page.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Page.prototype, "name", {
+  set: function(value) {
+    this.setName(value);
+  },
+  get: function() {
+    return this.getName();
+  },
+});
+
+
 /**
  * optional string name = 1;
  * @return {string}
@@ -742,12 +792,12 @@ proto.dawn.Page.prototype.setName = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Page.prototype, "name", {
+Object.defineProperty(proto.dawn.Page.prototype, "picture", {
   set: function(value) {
-    this.setName(value);
+    this.setPicture(value);
   },
   get: function() {
-    return this.getName();
+    return this.getPicture();
   },
 });
 
@@ -783,6 +833,16 @@ proto.dawn.Page.prototype.clearPicture = function() {
 proto.dawn.Page.prototype.hasPicture = function() {
   return jspb.Message.getField(this, 2) != null;
 };
+
+
+Object.defineProperty(proto.dawn.Page.prototype, "sound", {
+  set: function(value) {
+    this.setSound(value);
+  },
+  get: function() {
+    return this.getSound();
+  },
+});
 
 
 /**
@@ -930,6 +990,16 @@ proto.dawn.Media.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Media.prototype, "url", {
+  set: function(value) {
+    this.setUrl(value);
+  },
+  get: function() {
+    return this.getUrl();
+  },
+});
+
+
 /**
  * optional string url = 1;
  * @return {string}
@@ -943,16 +1013,6 @@ proto.dawn.Media.prototype.getUrl = function() {
 proto.dawn.Media.prototype.setUrl = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
 };
-
-
-Object.defineProperty(proto.dawn.Media.prototype, "url", {
-  set: function(value) {
-    this.setUrl(value);
-  },
-  get: function() {
-    return this.getUrl();
-  },
-});
 
 
 goog.object.extend(exports, proto.dawn);

@@ -15,7 +15,7 @@ import { apiService, utilService } from '../../service/api.service';
 })
 export class SessionPage implements OnInit {
   host = environment.apiUrl;
-  books: Book.AsObject[] = [];
+  books: Book[] = [];
   levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   sliderConfig = {
     slidesPerView: 6,
@@ -29,7 +29,7 @@ export class SessionPage implements OnInit {
   ngOnInit() {
     let stream = apiService.bookClient.list((new Book), apiService.metaData);
     stream.on('data', response => {
-      this.books.push(response.toObject());
+      this.books.push(response);
     });
     stream.on('error', err => {
       //alert(JSON.stringify(err));
@@ -40,7 +40,7 @@ export class SessionPage implements OnInit {
     });
   }
 
-  gotoView(book: Book.AsObject) {
+  gotoView(book: Book) {
     utilService.book = book;
     this.router.navigateByUrl('view');
   }

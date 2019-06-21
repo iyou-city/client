@@ -12,7 +12,7 @@ import { apiService, utilService } from '../../../service/api.service';
   styleUrls: ['./group.page.scss'],
 })
 export class GroupPage implements OnInit {
-  users: User.AsObject[] = [];
+  users: User[] = [];
 
   constructor(
     private router: Router,
@@ -21,7 +21,7 @@ export class GroupPage implements OnInit {
   ngOnInit() {
     let stream = apiService.userClient.list((new User), apiService.metaData);
     stream.on('data', response => {
-      let user = response.toObject();
+      let user = response;
       user['isChecked'] = true;
       this.users.push(user);
     });
@@ -68,7 +68,7 @@ export class GroupPage implements OnInit {
     }
 
     let tsGroup = new Group();
-    tsGroup.setName(groupName);
+    tsGroup.name = groupName;
     for (let j = 0; j < this.users.length; j++) {
       let user = this.users[j];
       if (user['isChecked']) {

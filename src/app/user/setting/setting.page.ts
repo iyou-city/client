@@ -56,9 +56,9 @@ export class SettingPage implements OnInit {
       return
     }
     let tsUser = new User();
-    tsUser.setId(utilService.getUser().id);
-    tsUser.setIcon(this.user.icon);
-    tsUser.setSignature(this.user.signature);
+    tsUser.id = utilService.getUser().id;
+    tsUser.icon = this.user.icon;
+    tsUser.signature = this.user.signature;
     apiService.userClient.update(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         utilService.alert(JSON.stringify(err));
@@ -66,7 +66,7 @@ export class SettingPage implements OnInit {
       } else {
         // refresh local storage
         utilService.setUser(this.user);
-        this.events.publish('user:login', response.getName());
+        this.events.publish('user:login', response.name);
         this.router.navigateByUrl('home');
       }
     });

@@ -66,7 +66,7 @@ export class RecordPage implements OnInit {
   // }
 
   takePhoto() {
-    this.article.setTitle("记录");
+    this.article.title = "记录";
     const options: CameraOptions = {
       quality: 100,
       correctOrientation: true,

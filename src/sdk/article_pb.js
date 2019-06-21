@@ -291,6 +291,16 @@ proto.dawn.Article.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Article.prototype, "id", {
+  set: function(value) {
+    this.setId(value);
+  },
+  get: function() {
+    return this.getId();
+  },
+});
+
+
 /**
  * optional string id = 1;
  * @return {string}
@@ -306,12 +316,12 @@ proto.dawn.Article.prototype.setId = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Article.prototype, "id", {
+Object.defineProperty(proto.dawn.Article.prototype, "title", {
   set: function(value) {
-    this.setId(value);
+    this.setTitle(value);
   },
   get: function() {
-    return this.getId();
+    return this.getTitle();
   },
 });
 
@@ -331,12 +341,12 @@ proto.dawn.Article.prototype.setTitle = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Article.prototype, "title", {
+Object.defineProperty(proto.dawn.Article.prototype, "content", {
   set: function(value) {
-    this.setTitle(value);
+    this.setContent(value);
   },
   get: function() {
-    return this.getTitle();
+    return this.getContent();
   },
 });
 
@@ -356,12 +366,12 @@ proto.dawn.Article.prototype.setContent = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Article.prototype, "content", {
+Object.defineProperty(proto.dawn.Article.prototype, "imagesList", {
   set: function(value) {
-    this.setContent(value);
+    this.setImagesList(value);
   },
   get: function() {
-    return this.getContent();
+    return this.getImagesList();
   },
 });
 
@@ -381,16 +391,6 @@ proto.dawn.Article.prototype.setImagesList = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Article.prototype, "imagesList", {
-  set: function(value) {
-    this.setImagesList(value);
-  },
-  get: function() {
-    return this.getImagesList();
-  },
-});
-
-
 /**
  * @param {string} value
  * @param {number=} opt_index
@@ -408,6 +408,16 @@ proto.dawn.Article.prototype.clearImagesList = function() {
 };
 
 
+Object.defineProperty(proto.dawn.Article.prototype, "videosList", {
+  set: function(value) {
+    this.setVideosList(value);
+  },
+  get: function() {
+    return this.getVideosList();
+  },
+});
+
+
 /**
  * repeated string videos = 5;
  * @return {!Array<string>}
@@ -421,16 +431,6 @@ proto.dawn.Article.prototype.getVideosList = function() {
 proto.dawn.Article.prototype.setVideosList = function(value) {
   jspb.Message.setField(this, 5, value || []);
 };
-
-
-Object.defineProperty(proto.dawn.Article.prototype, "videosList", {
-  set: function(value) {
-    this.setVideosList(value);
-  },
-  get: function() {
-    return this.getVideosList();
-  },
-});
 
 
 /**
@@ -450,6 +450,16 @@ proto.dawn.Article.prototype.clearVideosList = function() {
 };
 
 
+Object.defineProperty(proto.dawn.Article.prototype, "owner", {
+  set: function(value) {
+    this.setOwner(value);
+  },
+  get: function() {
+    return this.getOwner();
+  },
+});
+
+
 /**
  * optional string owner = 6;
  * @return {string}
@@ -465,12 +475,12 @@ proto.dawn.Article.prototype.setOwner = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Article.prototype, "owner", {
+Object.defineProperty(proto.dawn.Article.prototype, "location", {
   set: function(value) {
-    this.setOwner(value);
+    this.setLocation(value);
   },
   get: function() {
-    return this.getOwner();
+    return this.getLocation();
   },
 });
 
@@ -508,6 +518,16 @@ proto.dawn.Article.prototype.hasLocation = function() {
 };
 
 
+Object.defineProperty(proto.dawn.Article.prototype, "accessesList", {
+  set: function(value) {
+    this.setAccessesList(value);
+  },
+  get: function() {
+    return this.getAccessesList();
+  },
+});
+
+
 /**
  * repeated int32 accesses = 8;
  * @return {!Array<number>}
@@ -521,16 +541,6 @@ proto.dawn.Article.prototype.getAccessesList = function() {
 proto.dawn.Article.prototype.setAccessesList = function(value) {
   jspb.Message.setField(this, 8, value || []);
 };
-
-
-Object.defineProperty(proto.dawn.Article.prototype, "accessesList", {
-  set: function(value) {
-    this.setAccessesList(value);
-  },
-  get: function() {
-    return this.getAccessesList();
-  },
-});
 
 
 /**
@@ -548,6 +558,16 @@ proto.dawn.Article.prototype.addAccesses = function(value, opt_index) {
 proto.dawn.Article.prototype.clearAccessesList = function() {
   this.setAccessesList([]);
 };
+
+
+Object.defineProperty(proto.dawn.Article.prototype, "labelsMap", {
+  set: function(value) {
+    this.setLabelsMap(value);
+  },
+  get: function() {
+    return this.getLabelsMap();
+  },
+});
 
 
 /**
@@ -569,6 +589,16 @@ proto.dawn.Article.prototype.getLabelsMap = function(opt_noLazyCreate) {
 proto.dawn.Article.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
 };
+
+
+Object.defineProperty(proto.dawn.Article.prototype, "created", {
+  set: function(value) {
+    this.setCreated(value);
+  },
+  get: function() {
+    return this.getCreated();
+  },
+});
 
 
 /**
@@ -740,6 +770,16 @@ proto.dawn.Location.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Location.prototype, "latitude", {
+  set: function(value) {
+    this.setLatitude(value);
+  },
+  get: function() {
+    return this.getLatitude();
+  },
+});
+
+
 /**
  * optional float latitude = 1;
  * @return {number}
@@ -755,12 +795,12 @@ proto.dawn.Location.prototype.setLatitude = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Location.prototype, "latitude", {
+Object.defineProperty(proto.dawn.Location.prototype, "longitude", {
   set: function(value) {
-    this.setLatitude(value);
+    this.setLongitude(value);
   },
   get: function() {
-    return this.getLatitude();
+    return this.getLongitude();
   },
 });
 
@@ -780,12 +820,12 @@ proto.dawn.Location.prototype.setLongitude = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Location.prototype, "longitude", {
+Object.defineProperty(proto.dawn.Location.prototype, "name", {
   set: function(value) {
-    this.setLongitude(value);
+    this.setName(value);
   },
   get: function() {
-    return this.getLongitude();
+    return this.getName();
   },
 });
 
@@ -803,16 +843,6 @@ proto.dawn.Location.prototype.getName = function() {
 proto.dawn.Location.prototype.setName = function(value) {
   jspb.Message.setProto3StringField(this, 3, value);
 };
-
-
-Object.defineProperty(proto.dawn.Location.prototype, "name", {
-  set: function(value) {
-    this.setName(value);
-  },
-  get: function() {
-    return this.getName();
-  },
-});
 
 
 goog.object.extend(exports, proto.dawn);

@@ -234,6 +234,16 @@ proto.dawn.User.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.User.prototype, "id", {
+  set: function(value) {
+    this.setId(value);
+  },
+  get: function() {
+    return this.getId();
+  },
+});
+
+
 /**
  * optional string id = 1;
  * @return {string}
@@ -249,12 +259,12 @@ proto.dawn.User.prototype.setId = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "id", {
+Object.defineProperty(proto.dawn.User.prototype, "name", {
   set: function(value) {
-    this.setId(value);
+    this.setName(value);
   },
   get: function() {
-    return this.getId();
+    return this.getName();
   },
 });
 
@@ -274,12 +284,12 @@ proto.dawn.User.prototype.setName = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "name", {
+Object.defineProperty(proto.dawn.User.prototype, "password", {
   set: function(value) {
-    this.setName(value);
+    this.setPassword(value);
   },
   get: function() {
-    return this.getName();
+    return this.getPassword();
   },
 });
 
@@ -299,12 +309,12 @@ proto.dawn.User.prototype.setPassword = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "password", {
+Object.defineProperty(proto.dawn.User.prototype, "telephone", {
   set: function(value) {
-    this.setPassword(value);
+    this.setTelephone(value);
   },
   get: function() {
-    return this.getPassword();
+    return this.getTelephone();
   },
 });
 
@@ -324,12 +334,12 @@ proto.dawn.User.prototype.setTelephone = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "telephone", {
+Object.defineProperty(proto.dawn.User.prototype, "icon", {
   set: function(value) {
-    this.setTelephone(value);
+    this.setIcon(value);
   },
   get: function() {
-    return this.getTelephone();
+    return this.getIcon();
   },
 });
 
@@ -349,12 +359,12 @@ proto.dawn.User.prototype.setIcon = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "icon", {
+Object.defineProperty(proto.dawn.User.prototype, "signature", {
   set: function(value) {
-    this.setIcon(value);
+    this.setSignature(value);
   },
   get: function() {
-    return this.getIcon();
+    return this.getSignature();
   },
 });
 
@@ -374,12 +384,12 @@ proto.dawn.User.prototype.setSignature = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.User.prototype, "signature", {
+Object.defineProperty(proto.dawn.User.prototype, "labelsMap", {
   set: function(value) {
-    this.setSignature(value);
+    this.setLabelsMap(value);
   },
   get: function() {
-    return this.getSignature();
+    return this.getLabelsMap();
   },
 });
 
@@ -403,6 +413,16 @@ proto.dawn.User.prototype.getLabelsMap = function(opt_noLazyCreate) {
 proto.dawn.User.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
 };
+
+
+Object.defineProperty(proto.dawn.User.prototype, "created", {
+  set: function(value) {
+    this.setCreated(value);
+  },
+  get: function() {
+    return this.getCreated();
+  },
+});
 
 
 /**

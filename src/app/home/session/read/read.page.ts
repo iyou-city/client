@@ -16,7 +16,7 @@ import { apiService, utilService } from '../../../service/api.service';
 export class ReadPage implements OnInit {
   @ViewChild('slider') slides: IonSlides;
   host = environment.apiUrl;
-  book: Book.AsObject;
+  book: Book;
   audios = utilService.audiosCache;
   isAutoPlay = true;
   showShare = false;
@@ -67,7 +67,7 @@ export class ReadPage implements OnInit {
     this.play(true);
   }
 
-  playSound(page: Page.AsObject, book: Book.AsObject) {
+  playSound(page: Page, book: Book) {
     if (utilService.isOriginal) {
       this.playOringial(page);
     } else {
@@ -85,7 +85,7 @@ export class ReadPage implements OnInit {
     this.play(false);
   }
 
-  async playYours(page: Page.AsObject, book: Book.AsObject) {
+  async playYours(page: Page, book: Book) {
     if (!utilService.getUser()) {
       const toast = await this.toastController.create({
         message: '录音功能，请登录后再操作',

@@ -229,6 +229,16 @@ proto.dawn.Group.serializeBinaryToWriter = function(message, writer) {
 };
 
 
+Object.defineProperty(proto.dawn.Group.prototype, "id", {
+  set: function(value) {
+    this.setId(value);
+  },
+  get: function() {
+    return this.getId();
+  },
+});
+
+
 /**
  * optional string id = 1;
  * @return {string}
@@ -244,12 +254,12 @@ proto.dawn.Group.prototype.setId = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Group.prototype, "id", {
+Object.defineProperty(proto.dawn.Group.prototype, "name", {
   set: function(value) {
-    this.setId(value);
+    this.setName(value);
   },
   get: function() {
-    return this.getId();
+    return this.getName();
   },
 });
 
@@ -269,12 +279,12 @@ proto.dawn.Group.prototype.setName = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Group.prototype, "name", {
+Object.defineProperty(proto.dawn.Group.prototype, "description", {
   set: function(value) {
-    this.setName(value);
+    this.setDescription(value);
   },
   get: function() {
-    return this.getName();
+    return this.getDescription();
   },
 });
 
@@ -294,12 +304,12 @@ proto.dawn.Group.prototype.setDescription = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Group.prototype, "description", {
+Object.defineProperty(proto.dawn.Group.prototype, "icon", {
   set: function(value) {
-    this.setDescription(value);
+    this.setIcon(value);
   },
   get: function() {
-    return this.getDescription();
+    return this.getIcon();
   },
 });
 
@@ -319,12 +329,12 @@ proto.dawn.Group.prototype.setIcon = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Group.prototype, "icon", {
+Object.defineProperty(proto.dawn.Group.prototype, "membersList", {
   set: function(value) {
-    this.setIcon(value);
+    this.setMembersList(value);
   },
   get: function() {
-    return this.getIcon();
+    return this.getMembersList();
   },
 });
 
@@ -344,16 +354,6 @@ proto.dawn.Group.prototype.setMembersList = function(value) {
 };
 
 
-Object.defineProperty(proto.dawn.Group.prototype, "membersList", {
-  set: function(value) {
-    this.setMembersList(value);
-  },
-  get: function() {
-    return this.getMembersList();
-  },
-});
-
-
 /**
  * @param {string} value
  * @param {number=} opt_index
@@ -369,6 +369,16 @@ proto.dawn.Group.prototype.addMembers = function(value, opt_index) {
 proto.dawn.Group.prototype.clearMembersList = function() {
   this.setMembersList([]);
 };
+
+
+Object.defineProperty(proto.dawn.Group.prototype, "labelsMap", {
+  set: function(value) {
+    this.setLabelsMap(value);
+  },
+  get: function() {
+    return this.getLabelsMap();
+  },
+});
 
 
 /**
@@ -390,6 +400,16 @@ proto.dawn.Group.prototype.getLabelsMap = function(opt_noLazyCreate) {
 proto.dawn.Group.prototype.clearLabelsMap = function() {
   this.getLabelsMap().clear();
 };
+
+
+Object.defineProperty(proto.dawn.Group.prototype, "created", {
+  set: function(value) {
+    this.setCreated(value);
+  },
+  get: function() {
+    return this.getCreated();
+  },
+});
 
 
 /**
