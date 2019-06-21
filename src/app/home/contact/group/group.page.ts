@@ -32,13 +32,12 @@ export class GroupPage implements OnInit {
 
   async addPrompt() {
     const alert = await this.alertController.create({
-      message: '输入群名称',
+      message: '群名',
       inputs: [
         {
           name: 'name1',
           type: 'text',
-          value: '',
-          placeholder: '群名'
+          value: ''
         }
       ],
       buttons: [
