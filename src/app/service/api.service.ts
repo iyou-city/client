@@ -18,11 +18,11 @@ export class ApiService {
 
   constructor() { }
 
-  articleClient = new ArticlesClient(environment.apiUrl,null,null);
-  userClient = new UsersClient(environment.apiUrl,null,null);
-  groupClient = new GroupsClient(environment.apiUrl,null,null);
-  messageClient = new MessagesClient(environment.apiUrl,null,null);
-  bookClient = new BooksClient(environment.apiUrl,null,null);
+  articleClient = new ArticlesClient(environment.apiUrl, null, null);
+  userClient = new UsersClient(environment.apiUrl, null, null);
+  groupClient = new GroupsClient(environment.apiUrl, null, null);
+  messageClient = new MessagesClient(environment.apiUrl, null, null);
+  bookClient = new BooksClient(environment.apiUrl, null, null);
 
   metaData = { 'authorization-token': 'admin' };
 }
@@ -48,7 +48,8 @@ export class UtilService {
   }
 
   setUser(user: User) {
-    window.localStorage.setItem('user', JSON.stringify(user));
+    //window.localStorage.setItem('user', JSON.stringify(user));
+    window.localStorage.setItem('user', JSON.stringify(user.toObject()));
   }
 
   logout() {
