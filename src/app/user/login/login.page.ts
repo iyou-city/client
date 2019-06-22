@@ -11,7 +11,7 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  user = (new User()).toObject();
+  user = new User();
 
   constructor(
     private events: Events,

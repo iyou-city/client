@@ -14,12 +14,12 @@
         <ion-avatar slot="start">
           <img src="assets/icon/person.jpeg">
         </ion-avatar>
-        <ion-badge text-wrap slot="start">{{msg.content}} ({{msg.created?.seconds*1000 | date:'MM/dd H:mm'}})
+        <ion-badge text-wrap slot="start">{{msg.content}} ({{msg.created?.getSeconds()*1000 | date:'MM/dd H:mm'}})
         </ion-badge>
       </ion-item>
       <ion-item *ngIf="msg.to==peerId" lines="none">
         <ion-badge text-wrap color="success" slot="end">{{msg.content}}
-          ({{msg.created?.seconds*1000 | date:'MM/dd H:mm'}})
+          ({{msg.created?.getSeconds()*1000 | date:'MM/dd H:mm'}})
         </ion-badge>
         <ion-avatar slot="end">
           <img src="assets/icon/person.jpeg">
