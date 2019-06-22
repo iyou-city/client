@@ -65,7 +65,7 @@ export class SettingPage implements OnInit {
         //utilService.alert(JSON.stringify(err));
       } else {
         // refresh local storage
-        utilService.setUser(this.user);
+        utilService.setUser(tsUser);
         this.events.publish('user:login', response.name);
         this.router.navigateByUrl('home');
       }
