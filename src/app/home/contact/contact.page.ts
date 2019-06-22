@@ -12,8 +12,8 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./contact.page.scss'],
 })
 export class ContactPage implements OnInit {
-  users: User.AsObject[] = [];
-  groups: Group.AsObject[] = [];
+  users: User[] = [];
+  groups: Group[] = [];
   msgCache = utilService.msgCache;
 
   constructor(private router: Router) { }
@@ -28,7 +28,7 @@ export class ContactPage implements OnInit {
   loadGroups() {
     let stream = apiService.groupClient.list((new Group), apiService.metaData);
     stream.on('data', response => {
-      this.groups.push(response.toObject());
+      this.groups.push(response);
     });
     stream.on('error', err => {
       utilService.alert(JSON.stringify(err));
@@ -38,7 +38,7 @@ export class ContactPage implements OnInit {
   loadUsers() {
     let stream = apiService.userClient.list((new User), apiService.metaData);
     stream.on('data', response => {
-      let user = response.toObject();
+      let user = response;
       user['isDisplay'] = false;
       this.users.push(user);
     });
@@ -58,7 +58,7 @@ export class ContactPage implements OnInit {
 
   peersMessages() {
     let tsUser = new User();
-    tsUser.id=utilService.getUser().id;
+    tsUser.id = utilService.getUser().id;
     let stream = apiService.messageClient.receive(tsUser, apiService.metaData);
     stream.on('data', response => {
       let msg = response;
@@ -77,7 +77,7 @@ export class ContactPage implements OnInit {
   groupsMessages() {
     let stream = apiService.groupClient.list(new Empty(), apiService.metaData);
     stream.on('data', response => {
-      let group = response.toObject();
+      let group = response;
       this.subscribeTopic(group);
     });
     stream.on('error', err => {
@@ -86,9 +86,9 @@ export class ContactPage implements OnInit {
     });
   }
 
-  subscribeTopic(group: Group.AsObject) {
+  subscribeTopic(group: Group) {
     let tsTopIc = new Topic();
-    tsTopIc.groupId=group.id;
+    tsTopIc.groupId = group.id;
     let stream = apiService.messageClient.subscribe(tsTopIc, apiService.metaData);
     stream.on('data', response => {
       let topic = response;
