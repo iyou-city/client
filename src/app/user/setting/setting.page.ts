@@ -55,17 +55,17 @@ export class SettingPage implements OnInit {
       utilService.alert('请登录');
       return
     }
-    let tsUser = new User();
-    tsUser.id = utilService.getUser().id;
-    tsUser.icon = this.user.icon;
-    tsUser.signature = this.user.signature;
-    apiService.userClient.update(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
+    // let tsUser = new User();
+    // tsUser.id = utilService.getUser().id;
+    // tsUser.icon = this.user.icon;
+    // tsUser.signature = this.user.signature;
+    apiService.userClient.update(this.user, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         utilService.alert(JSON.stringify(err));
         //utilService.alert(JSON.stringify(err));
       } else {
         // refresh local storage
-        utilService.setUser(tsUser);
+        utilService.setUser(this.user);
         this.events.publish('user:login', response.name);
         this.router.navigateByUrl('home');
       }

@@ -20,10 +20,10 @@ export class LoginPage implements OnInit {
   ngOnInit() { }
 
   login() {
-    const tsUser = new User();
-    tsUser.telephone = this.user.telephone;
-    tsUser.password = this.user.password;
-    apiService.userClient.login(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
+    // const tsUser = new User();
+    // tsUser.telephone = this.user.telephone;
+    // tsUser.password = this.user.password;
+    apiService.userClient.login(this.user, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         console.log(err.code, err.message);
         utilService.alert('手机号或密码不正确.');

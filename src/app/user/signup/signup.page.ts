@@ -10,7 +10,7 @@ import { apiService, utilService } from '../../service/api.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  user = (new User()).toObject();
+  user = new User();
 
   constructor(private router: Router) { }
 
@@ -26,11 +26,11 @@ export class SignupPage implements OnInit {
       utilService.alert('请输入电话！');
       return
     }
-    const tsUser = new User();
-    tsUser.name = this.user.name;
-    tsUser.telephone = this.user.telephone;
-    tsUser.password = this.user.password;
-    apiService.userClient.add(tsUser, apiService.metaData, (err: grpcWeb.Error, response: User) => {
+    // const tsUser = new User();
+    // tsUser.name = this.user.name;
+    // tsUser.telephone = this.user.telephone;
+    // tsUser.password = this.user.password;
+    apiService.userClient.add(this.user, apiService.metaData, (err: grpcWeb.Error, response: User) => {
       if (err) {
         utilService.alert(err.message);
       } else {
