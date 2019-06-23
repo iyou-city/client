@@ -57,9 +57,9 @@ export class ContactPage implements OnInit {
   }
 
   peersMessages() {
-    let tsUser = new User();
-    tsUser.id = utilService.getUser().id;
-    let stream = apiService.messageClient.receive(tsUser, apiService.metaData);
+    // let tsUser = new User();
+    // tsUser.id = utilService.getUser().id;
+    let stream = apiService.messageClient.receive(utilService.getUser(), apiService.metaData);
     stream.on('data', response => {
       let msg = response;
       console.log(msg);
