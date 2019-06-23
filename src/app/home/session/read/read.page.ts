@@ -75,12 +75,12 @@ export class ReadPage implements OnInit {
     }
   }
 
-  playOringial(page: Page.AsObject) {
+  playOringial(page: Page) {
     // new Audio(environment.webUrl + '/uploads/' + page.sound.url).play();
     new Audio('https://sp0.baidu.com/-rM1hT4a2gU2pMbgoY3K/gettts?lan=en&text=' + page.name + '&spd=2&source=alading').play();
   }
 
-  onClick(page: Page.AsObject) {
+  onClick(page: Page) {
     this.playOringial(page);
     this.play(false);
   }
@@ -113,7 +113,7 @@ export class ReadPage implements OnInit {
     }
   }
 
-  onPress(page: Page.AsObject, book: Book.AsObject) {
+  onPress(page: Page, book: Book) {
     this.play(false);
     let fullPageName = book.title + "-" + page.name
     let fileName = fullPageName + '.mp3';
@@ -132,7 +132,7 @@ export class ReadPage implements OnInit {
     document.getElementById(fullPageName)['color'] = 'warning';
   }
 
-  onPressUp(page: Page.AsObject, book: Book.AsObject) {
+  onPressUp(page: Page, book: Book) {
     let fullPageName = book.title + "-" + page.name
     this.audios.get(fullPageName).stopRecord();
     document.getElementById(fullPageName)['color'] = 'success';

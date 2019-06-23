@@ -12,9 +12,9 @@ import { apiService } from '../../../service/api.service';
   styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit {
-  article: Article.AsObject;
-  tsArticle = new Article();
-  //tsArticle.setContent(this.article.content);
+  article: Article;
+  // tsArticle = new Article();
+  // tsArticle.setContent(this.article.content);
 
   constructor(
     private camera: Camera,
@@ -27,9 +27,9 @@ export class ArticleComponent implements OnInit {
 
   add() {
     // let tsArticle = new Article();
-    this.tsArticle.content=this.article.content;
-    this.tsArticle.imagesList=this.article.imagesList;
-    apiService.articleClient.add(this.tsArticle, apiService.metaData, (err: grpcWeb.Error, response: Article) => {
+    // this.tsArticle.content=this.article.content;
+    // this.tsArticle.imagesList=this.article.imagesList;
+    apiService.articleClient.add(this.article, apiService.metaData, (err: grpcWeb.Error, response: Article) => {
       if (err) {
         alert(JSON.stringify(err));
         //utilService.alert(JSON.stringify(err));
@@ -69,7 +69,6 @@ export class ArticleComponent implements OnInit {
     }, (err) => {
       // Handle error
     });
-
   }
 
 }

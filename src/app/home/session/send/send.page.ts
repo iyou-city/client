@@ -28,21 +28,21 @@ export class SendPage implements OnInit {
   }
 
   send() {
-    let tsMessage = new Message();
-    tsMessage.content = this.message.content;
-    tsMessage.from = utilService.getUser().id;
-    tsMessage.to = this.peerId;
+    // let tsMessage = new Message();
+    // tsMessage.content = this.message.content;
+    this.message.from = utilService.getUser().id;
+    this.message.to = this.peerId;
     let tt = new Timestamp();
     tt.fromDate(new Date())
-    tsMessage.created = tt;
+    this.message.created = tt;
 
     // e.g.139/153/159***
     if (this.peerId.startsWith('1')) {
-      apiService.messageClient.send(tsMessage, apiService.metaData, (err: grpcWeb.Error, e: any) => {
+      apiService.messageClient.send(this.message, apiService.metaData, (err: grpcWeb.Error, e: any) => {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
         }
-        console.log('send', tsMessage, 'done');
+        console.log('send', this.message, 'done');
       });
     }
 
@@ -50,16 +50,16 @@ export class SendPage implements OnInit {
     if (this.peerId.startsWith('2')) {
       let topic = new Topic();
       topic.groupId = this.peerId;
-      topic.message = tsMessage;
+      topic.message = this.message;
       apiService.messageClient.publish(topic, apiService.metaData, (err: grpcWeb.Error, e: any) => {
         if (err) {
           utilService.alert(err.code + ':' + err.message);
         }
-        console.log('publish', tsMessage, 'done');
+        console.log('publish', this.message, 'done');
       });
     }
 
-    this.messages.push(tsMessage);
+    this.messages.push(this.message);
     this.message.content = '';
   }
 }

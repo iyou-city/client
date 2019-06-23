@@ -19,7 +19,7 @@ import {
 })
 export class RecordPage implements OnInit {
   article = new Article();
-  articles: Article.AsObject[] = [];
+  articles: Article[] = [];
   slideOpts = {
     slidesPerView: 3,
     effect: 'flip'
@@ -43,7 +43,7 @@ export class RecordPage implements OnInit {
     var i = 0;
     let stream = apiService.articleClient.listByUser(this.article, apiService.metaData);
     stream.on('data', response => {
-      this.articles[i] = response.toObject();
+      this.articles[i] = response;
       //this.loadDistance(this.orders[i]);
       i++;
       //this.orders = this.orders.slice(0, i);
@@ -155,7 +155,7 @@ export class RecordPage implements OnInit {
   async writeArticle() {
     const modal = await this.modalController.create({
       component: ArticleComponent,
-      componentProps: { article: this.article.toObject() }
+      componentProps: { article: this.article }
     });
     await modal.present();
     this.ngOnInit();
