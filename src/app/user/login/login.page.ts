@@ -32,7 +32,7 @@ export class LoginPage implements OnInit {
         this.events.publish('user:login', response.name);
         this.router.navigateByUrl('/home');
       }
-      console.log(response);
+      //console.log(response);
     })
   }
 

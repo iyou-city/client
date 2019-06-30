@@ -44,13 +44,13 @@ export class UtilService {
     }
     let jsonUser = JSON.parse(window.localStorage.getItem('user'));
     let user = new User();
-    for (var key in jsonUser) {
-      if (key.indexOf("Map") <= 0) {
-        user[key] = jsonUser[key];
+    for (let key in jsonUser) {
+      if (key.indexOf("Map") == -1 && key.indexOf("created") == -1) {
+        user[key] = jsonUser[key]
       }
     }
     return user
-  }
+  };
 
   setUser(user: User) {
     //window.localStorage.setItem('user', JSON.stringify(user));
