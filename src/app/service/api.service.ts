@@ -39,12 +39,17 @@ export class UtilService {
   constructor() { }
 
   getUser(): User {
-    let localUser = window.localStorage.getItem('user');
-    if (!localUser) {
-      //window.alert('请登录!')
-      return null//(new User).toObject()
+    if (!window.localStorage.getItem('user')) {
+      return null
     }
-    return JSON.parse(localUser)
+    let jsonUser = JSON.parse(window.localStorage.getItem('user'));
+    let user = new User();
+    for (var key in jsonUser) {
+      if (key.indexOf("Map") <= 0) {
+        user[key] = jsonUser[key];
+      }
+    }
+    return user
   }
 
   setUser(user: User) {
