@@ -65,7 +65,7 @@ export class UtilService {
     const alert = await this.injector.get(AlertController).create({
       header: title,
       message: msg,
-      buttons: ['OK']
+      buttons: ['确定']
     });
     await alert.present();
   }
