@@ -31,7 +31,7 @@ export class UtilService {
   injector: Injector;
   // peer userId or groupId
   peerId = '';
-  msgCache = new Map<string, Message[]>();
+  msgCache = new Map<string, Message.AsObject[]>();
   audiosCache = new Map<string, MediaObject>();
   book = (new Book);
   isOriginal = true;

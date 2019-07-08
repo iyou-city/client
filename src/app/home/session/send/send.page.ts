@@ -11,7 +11,7 @@ import { Timestamp } from 'google-protobuf/google/protobuf/timestamp_pb';
   styleUrls: ['./send.page.scss'],
 })
 export class SendPage implements OnInit {
-  messages: Message[];
+  messages: Message.AsObject[];
   message = new Message();
   peerId: string;
 
@@ -28,8 +28,6 @@ export class SendPage implements OnInit {
   }
 
   send() {
-    // let tsMessage = new Message();
-    // tsMessage.content = this.message.content;
     this.message.from = utilService.getUser().id;
     this.message.to = this.peerId;
     let tt = new Timestamp();
@@ -59,7 +57,7 @@ export class SendPage implements OnInit {
       });
     }
 
-    this.messages.push(this.message);
+    this.messages.push(this.message.toObject());
     this.message.content = '';
   }
 }

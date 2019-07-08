@@ -66,7 +66,7 @@ export class ContactPage implements OnInit {
       if (this.msgCache.get(msg.from) == null) {
         this.msgCache.set(msg.from, []);
       }
-      this.msgCache.get(msg.from).push(msg)
+      this.msgCache.get(msg.from).push(msg.toObject())
     });
     stream.on('error', err => {
       console.log(err);
@@ -96,7 +96,7 @@ export class ContactPage implements OnInit {
       if (this.msgCache.get(topic.groupId) == null) {
         this.msgCache.set(topic.groupId, []);
       }
-      this.msgCache.get(topic.groupId).push(topic.message)
+      this.msgCache.get(topic.groupId).push(topic.message.toObject())
     });
     stream.on('error', err => {
       utilService.alert(JSON.stringify(err));
